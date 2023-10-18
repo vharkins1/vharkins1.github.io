@@ -25,19 +25,19 @@ const HomePage: React.FC = () => {
   return (
     <div className="container">
       <Head>
-        <title>Vincent's Portfolio</title>
+        <title>Vincent&apos;s Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <header>
-        <h1>Welcome to Vincent's Computer Engineering Portfolio</h1>
+        <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
         <p className="tagline">Passionate computer engineer exploring exciting projects.</p>
       </header>
 
       <section id="about">
         <h2>About Me</h2>
         <p>
-          Hello, I'm Vincent Harkins, a 20-year-old computer engineering major with a passion for technology and a drive to excel.
+          Hello, I&apos;m Vincent Harkins, a 20-year-old computer engineering major with a passion for technology and a drive to excel.
           I am enthusiastic about exploring opportunities, both in internships and jobs, to apply my skills and contribute to innovative projects.
         </p>
         {/* Add the rest of the "About Me" content */}
@@ -46,8 +46,8 @@ const HomePage: React.FC = () => {
       <section id="contact">
         <h2>Contact Me</h2>
         <p className="indent">
-          If you'd like to get in touch or discuss potential opportunities, feel free to reach out to me.
-          I'm always open to new connections and collaborations.
+          If you&apos;d like to get in touch or discuss potential opportunities, feel free to reach out to me.
+          I&apos;m always open to new connections and collaborations.
         </p>
         {/* Add the rest of the "Contact Me" content */}
       </section>
