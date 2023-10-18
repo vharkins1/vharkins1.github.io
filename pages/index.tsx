@@ -1,11 +1,25 @@
 // pages/index.tsx
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 
+// Your component
+function MyComponent() {
+  return (
+    <div>
+      {/* Use the Image component */}
+      <Image
+        src="/images/myImage.jpg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={300}  // Set the width of the image
+        height={200} // Set the height of the image
+      />
+    </div>
+  );
+}
 
-import Image from 'next/image'; // Import the Image component
-import myImage from './images/myImage.jpg'; // Adjust the path based on your actual file location
-
+// Export your component
+//export default MyComponent;
 
 const projects = [
   {
@@ -32,17 +46,16 @@ const HomePage: React.FC = () => {
 
     
     <div className="container">
-
-    <div>
-      {/* Use the Image component and specify the 'src' property */}
-      <Image src={myImage} alt="My Image" width={1000} height={500} />
-      {/* Add other content as needed */}
-      <h1>Welcome to My Next.js Site!</h1>
-    </div>
       <Head>
         <title>Vincent&apos;s Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Image
+        src="/images/myImage.jpg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={540}  // Set the width of the image
+        height={720} // Set the height of the image
+      />
 
       <header>
         <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
