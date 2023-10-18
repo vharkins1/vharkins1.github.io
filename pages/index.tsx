@@ -9,19 +9,19 @@ import myImage from './images/myImage.jpg'; // Adjust the path based on your act
 
 const projects = [
   {
-    title: 'Something',
-    description: 'A link to my github.',
-    link: 'https://github.com/vharkins1',
+    title: 'Web-based CPU Simulator',
+    description: 'A web application that simulates the operation of a CPU.',
+    link: 'https://github.com/vharkins1/cpu-simulator',
   },
   {
-    title: 'Something',
-    description: 'A link to my github.',
-    link: 'https://github.com/vharkins1',
+    title: 'Real-time Data Visualization Dashboard',
+    description: 'A dashboard for visualizing real-time data using React and D3.js.',
+    link: 'https://github.com/vharkins1/data-visualization-dashboard',
   },
   {
-    title: 'Something',
-    description: 'A link to my github.',
-    link: 'https://github.com/vharkins1',
+    title: 'Operating System Kernel Development',
+    description: 'Contributions to an open-source operating system kernel project.',
+    link: 'https://github.com/vharkins1/os-kernel-development',
   },
   // Add more projects here
 ];
