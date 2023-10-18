@@ -2,6 +2,11 @@
 import React from 'react';
 import Head from 'next/head';
 
+
+import Image from 'next/image'; // Import the Image component
+import myImage from './images/myImage.jpg'; // Adjust the path based on your actual file location
+
+
 const projects = [
   {
     title: 'Something',
@@ -21,9 +26,19 @@ const projects = [
   // Add more projects here
 ];
 
+
 const HomePage: React.FC = () => {
   return (
+
+    
     <div className="container">
+
+    <div>
+      {/* Use the Image component and specify the 'src' property */}
+      <Image src={myImage} alt="My Image" width={1000} height={500} />
+      {/* Add other content as needed */}
+      <h1>Welcome to My Next.js Site!</h1>
+    </div>
       <Head>
         <title>Vincent&apos;s Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
