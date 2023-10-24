@@ -14,6 +14,11 @@ function MyComponent() {
         width={300}  // Set the width of the image
         height={200} // Set the height of the image
       />
+       {/* Add a video using the HTML5 video element */}
+       <video width={320} height={240} controls>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 }
@@ -25,17 +30,17 @@ const projects = [
   {
     title: 'Web-based CPU Simulator',
     description: 'A web application that simulates the operation of a CPU.',
-    link: 'https://github.com/vharkins1/cpu-simulator',
+    link: 'https://github.com/vharkins1',
   },
   {
     title: 'Real-time Data Visualization Dashboard',
     description: 'A dashboard for visualizing real-time data using React and D3.js.',
-    link: 'https://github.com/vharkins1/data-visualization-dashboard',
+    link: 'https://github.com/vharkins1',
   },
   {
     title: 'Operating System Kernel Development',
     description: 'Contributions to an open-source operating system kernel project.',
-    link: 'https://github.com/vharkins1/os-kernel-development',
+    link: 'https://github.com/vharkins1',
   },
   // Add more projects here
 ];
@@ -53,9 +58,15 @@ const HomePage: React.FC = () => {
       <Image
         src="/images/myImage.jpg"  // Adjust the path based on your folder structure
         alt="My Image"
-        width={540}  // Set the width of the image
-        height={720} // Set the height of the image
-      />
+        width={320}  // Set the width of the image
+        height={400} // Set the height of the image
+      /> 
+      
+      {/* Add a video using the HTML5 video element */}
+      <video width={320} height={400} controls>
+       <source src="video/video.mp4" type="video/mp4"/>
+       Your browser does not support the video tag.
+      </video>
 
       <header>
         <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
