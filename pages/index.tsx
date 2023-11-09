@@ -14,7 +14,20 @@ function MyComponent() {
         width={300}  // Set the width of the image
         height={200} // Set the height of the image
       />
+      <Image
+        src="/images/myImage.jpg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={300}  // Set the width of the image
+        height={200} // Set the height of the image
+      />
+      <Image
+        src="/images/myImage.jpg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={300}  // Set the width of the image
+        height={200} // Set the height of the image
+      />
     </div>
+    
   );
 }
 
@@ -56,6 +69,25 @@ const HomePage: React.FC = () => {
         width={320}  // Set the width of the image
         height={400} // Set the height of the image
       /> 
+      <Image
+        src="/images/VincentGPT.JPG"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={400} // Set the height of the image
+      /> 
+      <Image
+        src="/images/JustBryce.PNG"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={400} // Set the height of the image
+      /> 
+      <Image
+        src="/images/image.jpg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={400} // Set the height of the image
+      /> 
+      
       
       {/* Add a video using the HTML5 video element */}
       <video width={320} height={400} controls>
@@ -115,7 +147,7 @@ const HomePage: React.FC = () => {
 
       <style jsx>{`
         .container {
-          max-width: 800px;
+          max-width: 1000px;
           margin: 0 auto;
           padding: 20px;
           font-family: 'Arial', sans-serif;
