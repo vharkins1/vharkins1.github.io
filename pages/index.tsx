@@ -161,7 +161,7 @@ const HomePage: React.FC = () => {
         }
 
         h1 {
-          font-size: 2em;
+          font-size: 2em; 
           margin-bottom: 10px;
         }
 
