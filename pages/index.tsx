@@ -94,14 +94,14 @@ const HomePage: React.FC = () => {
        <source src="video/video.mp4" type="video/mp4"/>
        Your browser does not support the video tag.
       </video>
-      <iframe
+      {/* <iframe
         src="https://www.tiktok.com/oembed?url=https://www.tiktok.com/@github/video/7125239666843962629?is_from_webapp=1&sender_device=pc"
         width="640"
         height="800"
         //frameborder="0"
         //allowtransparency="true"
         allow="encrypted-media"
-      ></iframe>
+      ></iframe> */}
 
       <header>
         <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
