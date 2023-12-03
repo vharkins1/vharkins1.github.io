@@ -97,6 +97,24 @@ const HomePage: React.FC = () => {
         width={320}  // Set the width of the image
         height={410} // Set the height of the image
       /> 
+      <Image
+        src="/images/J-LAN.jpeg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={410} // Set the height of the image
+      /> 
+      <Image
+        src="/images/RawRaph.jpeg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={410} // Set the height of the image
+      /> 
+      <Image
+        src="/images/Raphinmotion.jpeg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={410} // Set the height of the image
+      /> 
       {/* Add a video using the HTML5 video element */}
       <video width={320} height={410} controls>
        <source src="video/video.mp4" type="video/mp4"/>
