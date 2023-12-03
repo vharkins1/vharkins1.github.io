@@ -2,6 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link'; 
 
 // Your component
 function MyComponent() {
@@ -26,39 +27,24 @@ function MyComponent() {
         width={300}  // Set the width of the image
         height={200} // Set the height of the image
       />
+      {/* Add a button to navigate to the About page */}
+      <Link href="/about">
+        <a>
+          <button>Go to About Page</button>
+        </a>
+      </Link>
     </div>
     
   );
 }
 
-// Export your component
-//export default MyComponent;
-
-const projects = [
-  {
-    title: 'Web-based CPU Simulator',
-    description: 'A web application that simulates the operation of a CPU.',
-    link: 'https://github.com/vharkins1',
-  },
-  {
-    title: 'Real-time Data Visualization Dashboard',
-    description: 'A dashboard for visualizing real-time data using React and D3.js.',
-    link: 'https://github.com/vharkins1',
-  },
-  {
-    title: 'Operating System Kernel Development',
-    description: 'Contributions to an open-source operating system kernel project.',
-    link: 'https://github.com/vharkins1',
-  },
-  // Add more projects here
-];
-
-
 const HomePage: React.FC = () => {
   return (
-
-    
     <div className="container">
+      <header>
+        <h1>Welcome to the River Street Crew</h1>
+      <p className="tagline">A place of friends, and hopefully warmth, and maybe food. (These are trying times after all) </p>
+      </header>
       <Head>
         <title>Vincent&apos;s Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
@@ -105,8 +91,6 @@ const HomePage: React.FC = () => {
         width={320}  // Set the width of the image
         height={410} // Set the height of the image
       /> 
-      
-      
       {/* Add a video using the HTML5 video element */}
       <video width={320} height={410} controls>
        <source src="video/video.mp4" type="video/mp4"/>
@@ -131,45 +115,13 @@ const HomePage: React.FC = () => {
           </section> 
           </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
      */}
+      {/* Add a button to navigate to the About page */}
+      <Link href="/about">
+        <button>Go to About Page</button>
+      </Link>
 
-      <header>
-        <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
-        <p className="tagline">Passionate computer engineer exploring exciting projects.</p>
-      </header>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          Hello, I&apos;m Vincent Harkins, a 20-year-old computer engineering major with a passion for technology and a drive to excel.
-          I am enthusiastic about exploring opportunities, both in internships and jobs, to apply my skills and contribute to innovative projects.
-        </p>
-        {/* Add the rest of the "About Me" content */}
-      </section>
-
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <p className="indent">
-          If you&apos;d like to get in touch or discuss potential opportunities, feel free to reach out to me.
-          I&apos;m always open to new connections and collaborations.
-        </p>
-        {/* Add the rest of the "Contact Me" content */}
-      </section>
-
-      <section id="more">
-        <h2>More Stuff:</h2>
-        <ul className="projects-list">
-          {projects.map((project, index) => (
-            <li key={index} className="project">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                View Project
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-
+      
       <footer>
         <p>Contact: ninjaharkins@gmail.com</p>
       </footer>
@@ -181,7 +133,7 @@ const HomePage: React.FC = () => {
           padding: 20px;
           font-family: 'Arial', sans-serif;
           background-color: #aa0a0f0;
-          color: #333;
+          color: #fff;
         }
 
         header {
@@ -196,7 +148,7 @@ const HomePage: React.FC = () => {
 
         .tagline {
           font-size: 1.2em;
-          color: #555;
+          color: #777;
         }
 
         section {
