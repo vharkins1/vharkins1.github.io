@@ -85,16 +85,34 @@ const HomePage: React.FC = () => {
         src="/images/image.jpg"  // Adjust the path based on your folder structure
         alt="My Image"
         width={320}  // Set the width of the image
-        height={400} // Set the height of the image
+        height={410} // Set the height of the image
+      /> 
+      <Image
+        src="/images/lulu.jpeg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={410} // Set the height of the image
+      /> 
+      <Image
+        src="/images/Byrcewknife.jpeg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={410} // Set the height of the image
+      /> 
+      <Image
+        src="/images/Bryce's21st.jpeg"  // Adjust the path based on your folder structure
+        alt="My Image"
+        width={320}  // Set the width of the image
+        height={410} // Set the height of the image
       /> 
       
       
       {/* Add a video using the HTML5 video element */}
-      <video width={320} height={400} controls>
+      <video width={320} height={410} controls>
        <source src="video/video.mp4" type="video/mp4"/>
        Your browser does not support the video tag.
       </video>
-      <iframe 
+      {/* <iframe 
         width="560" 
         height="315" 
         src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=gqBIsz4TiV4tIVbV&amp;start=2" 
@@ -112,7 +130,7 @@ const HomePage: React.FC = () => {
             <a target="_blank" title="♬ Magical Page - DJ BAI" href="https://www.tiktok.com/music/Magical-Page-6945116703516805121?refer=embed">♬ Magical Page - DJ BAI</a> 
           </section> 
           </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-    
+     */}
 
       <header>
         <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
