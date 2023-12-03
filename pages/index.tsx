@@ -143,9 +143,11 @@ const HomePage: React.FC = () => {
       <Link href="/about">
         <button>Go to About Page</button>
       </Link>
-
-
       
+      <Link href="https://lewis-whitehill.github.io/mywebsite/">
+        <button>LEWIS&apos;S WEBSITE</button>
+      </Link>
+
       <footer>
         <p>Contact: ninjaharkins@gmail.com</p>
       </footer>
