@@ -38,12 +38,26 @@ function MyComponent() {
   );
 }
 
+const TopMenu = () => {
+  return (
+    <>
+      <Link href="https://lewis-whitehill.github.io/mywebsite/" className="menu-link" style={{ marginRight: '20px' }}>
+        Lewis&apos;s Website
+      </Link>
+      <Link href="/about" className="menu-link">
+        About Page
+      </Link>
+    </>
+  );
+};
+
 const HomePage: React.FC = () => {
   return (
     <div className="container">
       <header>
         <h1>Welcome to the River Street Crew</h1>
-      <p className="tagline">A place of friends, and hopefully warmth, and maybe food. (These are trying times after all) </p>
+        <p className="tagline">A place of friends, and hopefully warmth, and maybe food. (These are trying times after all) </p>
+        <TopMenu />
       </header>
       <Head>
         <title>Vincent&apos;s Portfolio</title>
@@ -57,12 +71,6 @@ const HomePage: React.FC = () => {
       /> 
       <Image
         src="/images/VincentGPT.JPG"  // Adjust the path based on your folder structure
-        alt="My Image"
-        width={320}  // Set the width of the image
-        height={400} // Set the height of the image
-      /> 
-      <Image
-        src="/images/JustBryce.PNG"  // Adjust the path based on your folder structure
         alt="My Image"
         width={320}  // Set the width of the image
         height={400} // Set the height of the image
@@ -139,15 +147,6 @@ const HomePage: React.FC = () => {
           </section> 
           </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
      */}
-      {/* Add a button to navigate to the About page */}
-      <Link href="/about">
-        <button>Go to About Page</button>
-      </Link>
-      
-      <Link href="https://lewis-whitehill.github.io/mywebsite/">
-        <button>LEWIS&apos;S WEBSITE</button>
-      </Link>
-
       <footer>
         <p>Contact: ninjaharkins@gmail.com</p>
       </footer>
@@ -158,36 +157,40 @@ const HomePage: React.FC = () => {
           margin: 0 auto;
           padding: 20px;
           font-family: 'Arial', sans-serif;
-          background-color: #aa0a0f0;
-          color: #fff;
+          background-color: #282c34; // Dark theme background
+          color: #ffffff; // Light text for contrast
+          border-radius: 8px; // Smooth edges
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Subtle shadow for depth
         }
 
         header {
           text-align: center;
           margin-bottom: 20px;
+          padding: 20px 0;
+          background-color: #20232a; // Slightly darker header background
+          border-radius: 8px 8px 0 0; // Rounded top edges
         }
 
         h1 {
-          font-size: 2em; 
+          font-size: 2.5em; // Slightly larger title
+          color: #61dafb; // Bright accent color for the title
           margin-bottom: 10px;
         }
 
         .tagline {
           font-size: 1.2em;
-          color: #777;
-        }
-
-        section {
-          margin-bottom: 30px;
+          color: #bbc2d8; // Softer color for less emphasis
         }
 
         h2 {
           font-size: 1.5em;
           margin-bottom: 10px;
+          color: #61dafb; // Consistent accent color
         }
 
         p {
           line-height: 1.6;
+          color: #abb2bf; // Lighter text for readability
         }
 
         .indent {
@@ -201,25 +204,24 @@ const HomePage: React.FC = () => {
 
         .project {
           margin-bottom: 20px;
-          border: 1px solid #ddd;
+          border: 1px solid #3a3f45; // Subtle border color
           padding: 10px;
           border-radius: 5px;
+          background-color: #32363e; // Slightly lighter project background
         }
 
         a {
-          color: #0070f3;
+          color: #61dafb; // Bright link color for contrast
           text-decoration: none;
         }
 
         a:hover {
           text-decoration: underline;
+          color: #ffffff; // White color on hover for visibility
         }
-
-        footer {
-          text-align: center;
-          margin-top: 30px;
-        }
+        
       `}</style>
+
     </div>
   );
 };
