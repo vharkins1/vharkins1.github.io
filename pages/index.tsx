@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
         
         <div className="image-hover-container">
           <Image src="/images/JCdunk.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
-          <span className="hover-text">JC dunking the basketball show his prominence and power!</span>
+          <span className="hover-text">JC dunking the basketball showing his prominence and power!</span>
         </div> 
       </div>
 
