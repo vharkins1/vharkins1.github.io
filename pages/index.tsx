@@ -46,7 +46,6 @@ const HomePage: React.FC = () => {
               <span className="hover-text">This is a photo of me talking to ChatGPT, while in my muppets class</span>
             </Link>
           </div> 
-        
 
         <div className="image-hover-container">
           <Image src="/images/image.jpg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
