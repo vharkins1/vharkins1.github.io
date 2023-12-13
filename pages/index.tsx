@@ -149,25 +149,19 @@ const HomePage: React.FC = () => {
           display: flex;
           flex-wrap: wrap; /* This allows items to wrap onto the next line */
           justify-content: flex-start; /* Aligns items to the start of the container */
-          gap: -20px; /* Space between images */
+          gap: 0px;
         }
         
-        .flex-container Image {
-            flex: 1; /* Allows images to grow and shrink as needed */
-            max-width: 300px; /* Maximum width of each image */
-            height: auto; /* Maintain aspect ratio */
-            margin: 5px; /* Optional: adds margin around images */
-        }
-
         .image-hover-container {
           position: relative;
-              flex: 1; /* Allows the container to grow and shrink */
-              max-width: 310px; /* Maximum width */
-              margin: 5px; /* Spacing between containers */
+          flex: 1; /* Allows the container to grow and shrink */
+          max-width: 330px; /* Maximum width */
+          margin: 0px; /* Spacing between containers */
+          align-item: flex-start;
         }
       
         .image-hover-container:hover .hover-image {
-            opacity: 0.6; // Image opacity change on hover
+          opacity: 0.6; // Image opacity change on hover
         }
       
         .hover-text {
@@ -179,10 +173,9 @@ const HomePage: React.FC = () => {
             font-size: 20px; // Adjust as needed
             text-align: center;
             opacity: 0; // Initially hidden
-            transition: opacity 0.5s ease;
+            transition: opacity .5s ease;
             pointer-events: none; // Prevents the text from interfering with image hover
             padding: 5px;
-            
         }
         
         .image-hover-container:hover .hover-text {
