@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
 
       <header>
         <h1>Welcome to the River Street Crew</h1>
-        <p className="tagline">A place of friends, and hopefully warmth, and maybe food. (These are trying times after all) </p>
+        <p className="tagline">A place of friends, hopefully warmth, and maybe even food. (These are trying times after all) </p>
         <TopMenu />
       </header>
       
@@ -107,6 +107,11 @@ const HomePage: React.FC = () => {
           <Image src="/images/JCdunk.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">JC dunking the basketball showing his prominence and power!</span>
         </div> 
+        <div className="image-hover-container">
+          <Image src="/images/MaybeZachIsABurrito.jpg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <span className="hover-text">I was kidding before about Zach beinging a burrito, but after spotting him in the wild the mind kinda wonders</span>
+        </div> 
+
       </div>
 
       {/* Add a video using the HTML5 video element */}

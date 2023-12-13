@@ -64,6 +64,16 @@ const CoolStuff: React.FC = () => {
 
   <style jsx>{`
 
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 40px;
+      /*font-family: "Comic Sans MS", "Comic Sans", cursive;*/
+      font-family: 'Arial', sans-serif;
+      background-color: #282c34; // Dark theme background
+      border-radius: 8px; // Smooth edges
+    }
+
     header {
       text-align: center;
       margin-bottom: 20px;

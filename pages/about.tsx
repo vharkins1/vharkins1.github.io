@@ -5,19 +5,19 @@ import Link from 'next/link';
 
 const projects = [
     {
-      title: 'Web-based CPU Simulator',
-      description: 'A web application that simulates the operation of a CPU.',
+      title: 'My personal Github Page',
+      description: 'An Airtag tracking project with the intent to help UCSC track their busses more accurately',
       link: 'https://github.com/vharkins1',
     },
     {
-      title: 'Real-time Data Visualization Dashboard',
-      description: 'A dashboard for visualizing real-time data using React and D3.js.',
-      link: 'https://github.com/vharkins1',
+      title: 'My School Stuff',
+      description: "The projects that I've done for school",
+      link: '(Current link inactive)',
     },
     {
-      title: 'Operating System Kernel Development',
-      description: 'Contributions to an open-source operating system kernel project.',
-      link: 'https://github.com/vharkins1',
+      title: 'This website',
+      description: "This is the repo I'm using to for this website, using Github pages",
+      link: 'https://github.com/vharkins1/vharkins1.github.io',
     },
     // Add more projects here
   ];
@@ -36,7 +36,6 @@ const AboutPage: React.FC = () => {
       Hello, I&apos;m Vincent Harkins, a 20-year-old computer engineering major with a passion for technology and a drive to excel.
       I am enthusiastic about exploring opportunities, both in internships and jobs, to apply my skills and contribute to innovative projects.
     </p>
-    {/* Add the rest of the "About Me" content */}
   </section>
 
   <section id="contact">
@@ -45,7 +44,6 @@ const AboutPage: React.FC = () => {
       If you&apos;d like to get in touch or discuss potential opportunities, feel free to reach out to me.
       I&apos;m always open to new connections and collaborations.
     </p>
-    {/* Add the rest of the "Contact Me" content */}
   </section>
 
   <section id="more">
@@ -72,17 +70,21 @@ const AboutPage: React.FC = () => {
 
   <style jsx>{`
     .container {
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 40px;
+      /*font-family: "Comic Sans MS", "Comic Sans", cursive;*/
       font-family: 'Arial', sans-serif;
-      background-color: #aa0a0f0;
-      color: #999;
+      background-color: #282c34; // Dark theme background
+      border-radius: 8px; // Smooth edges
     }
 
     header {
       text-align: center;
       margin-bottom: 20px;
+      padding: 20px 0;
+      background-color: #20232a; // Slightly darker header background
+      border-radius: 8px 8px 0 0; // Rounded top edges
     }
 
     h1 {
@@ -119,7 +121,7 @@ const AboutPage: React.FC = () => {
 
     .project {
       margin-bottom: 20px;
-      border: 1px solid #ddd;
+      border: 5px solid grey;
       padding: 10px;
       border-radius: 5px;
     }
