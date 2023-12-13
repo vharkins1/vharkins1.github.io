@@ -6,6 +6,7 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 
+
 const TopMenu = () => {
   return (
     <>
@@ -20,9 +21,11 @@ const TopMenu = () => {
   );
 };
 
+
 const HomePage: React.FC = () => {
   return (
     <div className="container">
+    
 
       <header>
         <h1>Welcome to the River Street Crew</h1>
@@ -36,11 +39,14 @@ const HomePage: React.FC = () => {
           <Image src="/images/myImage.jpg" alt="Image 1" style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} width={320} height={400}/>
           <span className="hover-text">The first photo added to this website, this was taken after bargining into Bryce and Raph&apos;s room</span>
         </div>
-
-        <div className="image-hover-container">
-          <Image src="/images/VincentGPT.JPG" alt="Image 2" width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
-          <span className="hover-text">This is a photo of me talking to ChatGPT, while in my muppets class</span>
-        </div> 
+        
+          <div className="image-hover-container" >
+            <Link href="/cool-stuff">
+              <Image src="/images/VincentGPT.JPG" alt="Image 2" width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+              <span className="hover-text">This is a photo of me talking to ChatGPT, while in my muppets class</span>
+            </Link>
+          </div> 
+        
 
         <div className="image-hover-container">
           <Image src="/images/image.jpg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
