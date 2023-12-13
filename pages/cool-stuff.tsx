@@ -29,7 +29,7 @@ const UserInputComponent = () => {
                 value={inputValue} 
                 onChange={handleInputChange}
                 onKeyPress={handleKeyPress} // Added the key press event listener
-                placeholder="Enter text here" 
+                placeholder="Hi love :)" 
             />
             <div>
                 {displayText.map((text, index) => (
@@ -49,6 +49,7 @@ const CoolStuff: React.FC = () => {
     <header>
     <h1>Welcome to Vincent&apos;s Trying Stuff Area</h1>
     <p className="tagline">Passionate computer engineer exploring exciting projects.</p>
+    <p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>
   </header>
     <React.StrictMode>
     <UserInputComponent/>
