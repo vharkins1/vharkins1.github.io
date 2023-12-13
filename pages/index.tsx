@@ -28,6 +28,7 @@ const HomePage: React.FC = () => {
     
 
       <header>
+        <meta name="google-site-verification" content="tibJ68xz3h6hnpte3wYGg2loI864ERw8rEFhnpbqb1c" />
         <h1>Welcome to the River Street Crew</h1>
         <p className="tagline">A place of friends, hopefully warmth, and maybe even food. (These are trying times after all) </p>
         <TopMenu />
