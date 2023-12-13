@@ -7,6 +7,16 @@
   min-height: 100vh;
 }
 
+.menu-link {
+  color: #61dafb;
+  /*text-decoration: none; /* Removes the underline */
+}
+
+.menu-link:hover {
+  color: #f1dafb;
+  /*text-decoration: underline; /* Adds underline on hover */
+}
+
 .description {
   display: inherit;
   justify-content: inherit;

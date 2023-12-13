@@ -3,20 +3,22 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link'; 
+import styles from '../styles/Home.module.css';
+
 
 const TopMenu = () => {
   return (
     <>
-      <Link href="https://lewis-whitehill.github.io/mywebsite/" className="menu-link" style={{ marginRight: '20px' }}>
-        Lewis&apos;s Website
-      </Link>
-      <Link href="/about" className="menu-link">
-        About Page
-      </Link>
+        <Link href="https://lewis-whitehill.github.io/mywebsite/" className={styles['menu-link']} style={{ marginRight: '20px' }}>
+          Lewis&apos;s Website
+        </Link>
+
+        <Link href="/about" className={styles['menu-link']}>
+          About Page
+        </Link>
     </>
   );
 };
-
 
 const HomePage: React.FC = () => {
   return (
@@ -27,12 +29,7 @@ const HomePage: React.FC = () => {
         <p className="tagline">A place of friends, and hopefully warmth, and maybe food. (These are trying times after all) </p>
         <TopMenu />
       </header>
-
-      <Head>
-        <title>Vincent&apos;s Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      
       <div className="flex-container">
 
         <div className="image-hover-container">
@@ -56,12 +53,12 @@ const HomePage: React.FC = () => {
         </div>
 
         <div className="image-hover-container">
-          <Image src="/images/Byrcewknife.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/Byrcewknife.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">This is Bryce while working on the muppets final</span>
         </div> 
 
         <div className="image-hover-container">
-          <Image src="/images/Bryce's21st.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/Bryce's21st.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">Happy 21st Bryce you old ass motherf--. Naw I love you Bryce&#9825;</span>
         </div> 
 
@@ -71,12 +68,12 @@ const HomePage: React.FC = () => {
         </div> 
 
         <div className="image-hover-container">
-          <Image src="/images/J-LAN.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/J-LAN.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">Had to add the boy Jalen to the website, and here he is just trying to enjoy his food</span>
         </div> 
 
         <div className="image-hover-container">
-          <Image src="/images/Raphinmotion.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/Raphinmotion.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">Raph running at me for little to no reason</span>
         </div> 
         
@@ -86,22 +83,22 @@ const HomePage: React.FC = () => {
         </div> 
 
         <div className="image-hover-container">
-          <Image src="/images/McEds.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/McEds.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">TWO WHOLE BAGS OF MC DONALDS WOW! THX FOR THE DOORDASH LEWIS</span>
         </div> 
 
         <div className="image-hover-container">
-          <Image src="/images/Clarence.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/Clarence.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">Clarence while standing in front of totally accurate height marks on the wall behind him</span>
         </div> 
 
         <div className="image-hover-container">
-          <Image src="/images/burritoZach.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/burritoZach.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">This is probably what Zach would look like as a burrito</span>
         </div>  
         
         <div className="image-hover-container">
-          <Image src="/images/JCdunk.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <Image src="/images/JCdunk.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">JC dunking the basketball showing his prominence and power!</span>
         </div> 
       </div>
@@ -190,15 +187,14 @@ const HomePage: React.FC = () => {
           font-family: 'Arial', sans-serif; /* Consistent font family */
           border-radius: 8px; // Smooth edge
         }
-
-        a {
+        a{
           color: #61dafb;
           text-decoration: none; /* Removes the underline */
         }
-        
-        a:hover {
-            color: #f1dafb;
-            text-decoration: underline; /* Adds underline on hover */
+
+        a:hover{
+          color: #f1dafb;
+          text-decoration: underline; /* Adds underline on hover */
         }
 
       `}</style>
