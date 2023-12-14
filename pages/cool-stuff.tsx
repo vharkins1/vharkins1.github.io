@@ -7,8 +7,11 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 const UserInputComponent = () => {
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState<string>('');
     const [displayText, setDisplayText] = useState<string[]>([]);
+    const secretPassword = "<333>"; // Define your secret password here
+    const [showSpecialMessage, setshowSpecialMessage] = useState<boolean>(false);
+
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
@@ -17,7 +20,15 @@ const UserInputComponent = () => {
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            setDisplayText(prevText => [inputValue, ...prevText]);
+            if (inputValue === secretPassword) {
+                // Perform your action here if the password is correct
+                console.log("Password is correct!");
+                // For example, you can display a special message
+                setDisplayText(prevText => [...prevText, "Access Granted!"]);
+            } else {
+                // Handle the case where the input is not the secret password
+                setDisplayText(prevText => [...prevText, inputValue]);
+            }
             setInputValue(''); // Clears the input field
         }
     };
@@ -25,23 +36,20 @@ const UserInputComponent = () => {
     return (
         <div>
             <input 
-                type="text" 
-                value={inputValue} 
+                type="text"
+                value={inputValue}
                 onChange={handleInputChange}
-                onKeyPress={handleKeyPress} // Added the key press event listener
-                placeholder="Hi love :)" 
+                onKeyPress={handleKeyPress}
+                placeholder={showSpecialMessage ? "Type something else..." : "Enter text here"}
             />
             <div>
                 {displayText.map((text, index) => (
-                    <p key={index}>{text}</p> // Display each line of text
+                    <p key={index}>{text}</p>
                 ))}
             </div>
         </div>
     );
 };
-
-
-
 
 const CoolStuff: React.FC = () => {
   return (
@@ -49,7 +57,7 @@ const CoolStuff: React.FC = () => {
     <header>
     <h1>Welcome to Vincent&apos;s Trying Stuff Area</h1>
     <p className="tagline">Passionate computer engineer exploring exciting projects.</p>
-    <p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>
+    {/*showSpecialMessage && <p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>*/}
   </header>
     <React.StrictMode>
     <UserInputComponent/>
