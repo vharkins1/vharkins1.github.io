@@ -1,9 +1,10 @@
 // pages/index.tsx
-import React from 'react';
+import React, {useState} from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link'; 
 import styles from '../styles/Home.module.css';
+import { useSpecialMessage } from '../context/SpecialMessageContext';
 
 
 
@@ -23,14 +24,22 @@ const TopMenu = () => {
 
 
 const HomePage: React.FC = () => {
+  //const { showSpecialMessage, setShowSpecialMessage } = useSpecialMessage(); 
+  const [userResponse, setUserResponse] = useState('');
+  // const handlePrompt = () => {
+  //   let response = window.prompt('PLEASE BEWARE!');
+  //   while(response !== '<333'){
+  //     response = window.prompt('HAHAAHAHA');
+  //   }
+  // };
+
   return (
     <div className="container">
-    
-
       <header>
-        {/*<meta name="google-site-verification" content="tibJ68xz3h6hnpte3wYGg2loI864ERw8rEFhnpbqb1c" />*/}
-        <h1>Welcome to the River Street Crew</h1>
+        <h1>Welcome to The River Street Crew</h1>
         <p className="tagline">A place of friends, hopefully warmth, and maybe even food. (These are trying times after all) </p>
+        {/* {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>)} */}
+
         <TopMenu />
       </header>
       
@@ -42,6 +51,7 @@ const HomePage: React.FC = () => {
         </div>
         
           <div className="image-hover-container" >
+          {/* onClick={handlePrompt} */}
             <Link href="/cool-stuff">
               <Image src="/images/VincentGPT.JPG" alt="Image 2" width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
               <span className="hover-text">This is a photo of me talking to ChatGPT, while in my muppets class</span>

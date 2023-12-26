@@ -2,71 +2,130 @@
 
 import Head from 'next/head';
 import Link from 'next/link'; 
+import styled, { keyframes } from 'styled-components';
 
+import React, { useRef, useState, useEffect} from 'react';
+import { useSpecialMessage } from '../context/SpecialMessageContext';
+import DrawingCanvas from '../context/DrawingCanvas';
 
-import React, { useState } from 'react';
+const StyledButton = styled.button`
+  background-color: grey;
+  color: white;
+  padding: 3px 4px;
+  border-radius: 1px;
+  border: none;
+  cursor: pointer;
+`;
+function isLocalStorageAvailable() {
+  const testKey = 'test';
+  const storage = window.localStorage;
+
+  try {
+      storage.setItem(testKey, '1');
+      storage.removeItem(testKey);
+      return true;
+  } catch (error) {
+      return false;
+  }
+}
 
 const UserInputComponent = () => {
+    const [color, setColor] = useState('white');
     const [inputValue, setInputValue] = useState<string>('');
     const [displayText, setDisplayText] = useState<string[]>([]);
-    const secretPassword = "<333>"; // Define your secret password here
-    const [showSpecialMessage, setshowSpecialMessage] = useState<boolean>(false);
+    const secretPassword = "<333";
+    const { showSpecialMessage, setShowSpecialMessage } = useSpecialMessage(); 
+    
 
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const saved = window.sessionStorage.getItem('displayText');
+            if (saved) {
+                setDisplayText(JSON.parse(saved));
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.sessionStorage.setItem('displayText', JSON.stringify(displayText));
+        }
+    }, [displayText]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
     };
 
+
+
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             event.preventDefault();
             if (inputValue === secretPassword) {
-                // Perform your action here if the password is correct
                 console.log("Password is correct!");
-                // For example, you can display a special message
                 setDisplayText(prevText => [...prevText, "Access Granted!"]);
-            } else {
-                // Handle the case where the input is not the secret password
-                setDisplayText(prevText => [...prevText, inputValue]);
+                setShowSpecialMessage(true);
+            }else {
+                setColor(color);
+                setDisplayText(prevText => [inputValue]);
             }
-            setInputValue(''); // Clears the input field
+            setInputValue('');
         }
     };
 
     return (
         <div>
+            <a>Choose title color:</a>
+            <input type="color" value={color} onChange={(e) => setColor(e.target.value)} />
+            <a></a>
             <input 
                 type="text"
                 value={inputValue}
                 onChange={handleInputChange}
                 onKeyPress={handleKeyPress}
-                placeholder={showSpecialMessage ? "Type something else..." : "Enter text here"}
+                placeholder={showSpecialMessage ? "Hello Love" : "Enter Title of Work Here"}
             />
-            <div>
-                {displayText.map((text, index) => (
-                    <p key={index}>{text}</p>
-                ))}
-            </div>
-        </div>
+            <div style={{ textAlign: 'center' } }>
+            {displayText.map((text, index) => (
+              <h1 key={index} style={{ color: color }}>{text}</h1>
+            ))}
+          </div>
+      </div>
     );
 };
 
 const CoolStuff: React.FC = () => {
+  const { showSpecialMessage } = useSpecialMessage();
+  const [userResponse, setUserResponse] = useState('');
+  const handlePrompt = () => {
+    const response = window.prompt('Please enter your answer:');
+    if (response !== null) {
+        setUserResponse(response);
+    }
+  };
   return (
     <div className="container">
+
     <header>
-    <h1>Welcome to Vincent&apos;s Trying Stuff Area</h1>
-    <p className="tagline">Passionate computer engineer exploring exciting projects.</p>
-    {/*showSpecialMessage && <p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>*/}
-  </header>
+      <h1>Welcome to Vincent&apos;s Trying Stuff Area</h1>
+      <a>Passionate computer engineer exploring exciting projects.</a>
+      {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>)}
+    </header>
+
     <React.StrictMode>
     <UserInputComponent/>
     </React.StrictMode>
+    <DrawingCanvas/>
 
-  <footer>
-    <Link href="/">
-      <button>Go to Home Page</button>
-    </Link>
+    <footer>
+      <div>
+        <StyledButton onClick={handlePrompt}>Give Feedback</StyledButton>
+        {userResponse && <p>You responded: {userResponse}</p>}
+        <Link href="/">
+          <StyledButton>Go to Home Page</StyledButton>
+        </Link>
+      </div>
+    
     <p>Contact: ninjaharkins@gmail.com</p>
   </footer>
 
