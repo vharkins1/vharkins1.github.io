@@ -124,6 +124,7 @@ const CoolStuff: React.FC = () => {
         <Link href="/">
           <StyledButton>Go to Home Page</StyledButton>
         </Link>
+        {showSpecialMessage && (<Link href="/GPT"> <StyledButton>Go to GPT</StyledButton> </Link>)}
       </div>
     
     <p>Contact: ninjaharkins@gmail.com</p>
