@@ -132,6 +132,18 @@ const HomePage: React.FC = () => {
           <Image src="/images/StarbucksForJalens21st.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">Jalen&apos;s 21 birthday, we got quirky and cool drinks twas lit! if only Jalen let me and Bryce pay the 50 cent tax for his cup smh. All Love &#9825;</span>
         </div>
+        <div className="image-hover-container">
+          <Image src="/images/BryceWithBalloons.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <span className="hover-text">Just a good photo all around, Bryce is holding an obscene amount of small balloons</span>
+        </div>
+        <div className="image-hover-container">
+          <Image src="/images/RaphInMotionAgain.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <span className="hover-text">I seem to only have Raph in motion, so here he is again in motion!</span>
+        </div>
+        <div className="image-hover-container">
+          <Image src="/images/MasterOfChess.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <span className="hover-text">Bryce with poofy hair and a dope ass chess hat, yup</span>
+        </div>
       </div>
 
       {/* Add a video using the HTML5 video element */}
