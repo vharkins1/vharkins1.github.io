@@ -86,7 +86,13 @@ const DrawingCanvas = ({special,title}) => {
         setIsErasing(newErasingState);
     
         if (contextRef.current) {
-            contextRef.current.globalCompositeOperation = newErasingState ? 'destination-out' : 'source-over';
+            if(special){
+                contextRef.current.globalCompositeOperation = newErasingState ? 'destination-out' : 'source-over';
+            }else{
+                setColor('#20232a');
+            }
+            
+            
         }
     };
     
@@ -98,7 +104,6 @@ const DrawingCanvas = ({special,title}) => {
             const image = new Image();
             image.src = '/images/Hearts.png'; // Path to your image
             image.onload = () => {
-                // Optionally, scale and position the image as needed
                 context.drawImage(image, 0, 0, context.canvas.width/2, context.canvas.height/2);
             };
         }else{
