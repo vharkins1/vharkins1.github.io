@@ -34,40 +34,40 @@ interface TemporaryFontSizeChangerProps {
   message: string; // Specify the type of the `message` prop
 }
 
+interface TemporaryFontSizeChangerProps {
+  message: string;
+}
+
 const TemporaryFontSizeChanger: React.FC<TemporaryFontSizeChangerProps> = ({ message }) => {
   const [fontSize, setFontSize] = useState(16);
-  let isGrowing = true; // Local variable to control the growing/shrinking
+  const isGrowing = useRef(true); // Use useRef to persist the value
 
   useEffect(() => {
-      const interval = setInterval(() => {
-          setFontSize(prevFontSize => {
-              // Determine whether to grow or shrink the font size
-              if (prevFontSize >= 50) isGrowing = false;
-              if (prevFontSize <= 16) isGrowing = true;
+    const interval = setInterval(() => {
+      setFontSize(prevFontSize => {
+        if (prevFontSize >= 50) isGrowing.current = false;
+        if (prevFontSize <= 16) isGrowing.current = true;
+        return isGrowing.current ? prevFontSize + 1 : prevFontSize - 1;
+      });
+    }, 30);
 
-              // Change font size
-              return isGrowing ? prevFontSize + 1 : prevFontSize - 1;
-          });
-      }, 30);
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+    }, 7000);
 
-      const timeout = setTimeout(() => {
-          clearInterval(interval);
-      }, 7000);
-
-      return () => {
-          clearInterval(interval);
-          clearTimeout(timeout);
-      };
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, []); // Empty dependency array
 
   return (
-      <div>
-          <h1 style={{ fontSize: `${fontSize}px` }}>
-              {message}
-          </h1>
-      </div>
+    <div>
+      <h1 style={{ fontSize: `${fontSize}px` }}>{message}</h1>
+    </div>
   );
 };
+
 
 interface UserInputComponentProps {
   setTitle: React.Dispatch<React.SetStateAction<string>>;
