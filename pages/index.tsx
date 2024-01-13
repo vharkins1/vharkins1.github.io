@@ -143,6 +143,7 @@ const HomePage: React.FC = () => {
       <footer className="site-footer">
         <div className="footer-content">
           <p>Contact me at <a href="mailto:ninjaharkins@gmail.com">ninjaharkins@gmail.com</a></p>
+          <p>If you got here good for you! You can click on the second image to access a special Page if I haven&apos;t changed it yet</p>
           <p>© 2023 River Street Crew</p>
         </div>
       </footer>
