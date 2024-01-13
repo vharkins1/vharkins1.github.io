@@ -63,7 +63,7 @@ const DrawingCanvas = ({special,title}) => {
 
     const startDrawing = ({ nativeEvent }) => {
         const { offsetX, offsetY } = nativeEvent;
-        contextRef.current.strokeStyle = color; // Use the selected color
+        contextRef.current.strokeStyle = isErasing ? '#20232a' :color; // Use the selected color
         contextRef.current.beginPath();
         contextRef.current.moveTo(offsetX, offsetY);
         setIsDrawing(true);
@@ -88,11 +88,7 @@ const DrawingCanvas = ({special,title}) => {
         if (contextRef.current) {
             if(special){
                 contextRef.current.globalCompositeOperation = newErasingState ? 'destination-out' : 'source-over';
-            }else{
-                setColor('#20232a');
             }
-            
-            
         }
     };
     
@@ -151,7 +147,7 @@ const DrawingCanvas = ({special,title}) => {
     return (
         <div>
         <input type="color" value= "#FFFFFF" onChange={(e) => setColor(e.target.value) } />
-        <button onClick={toggleErasing}>{isErasing ? 'Switch to Draw' : 'Switch to Erase'}</button>
+        <button onClick={() => { toggleErasing(); setIsErasing(!isErasing); }} >{isErasing ? 'Switch to Draw' : 'Switch to Erase'}</button>
 
             <label style={{fontSize: special ? '24px': '18px',fontWeight: special ? "bold" : "normal" , color: special ? "black" : "white"}}>Brush Size: </label>
             <input 
