@@ -91,8 +91,6 @@ const DrawingCanvas = ({special,title}) => {
             }
         }
     };
-    
-
 
     const drawBackground = (context) => {
         
@@ -161,6 +159,9 @@ const DrawingCanvas = ({special,title}) => {
             onMouseDown={startDrawing}
             onMouseUp={finishDrawing}
             onMouseMove={draw}
+            onTouchStart={startDrawing}
+            onTouchEnd={finishDrawing}
+            onTouchMove={draw}
             ref={canvasRef}
         />
         <button onClick={saveDrawing}>Save Drawing</button> {/* Save button */}
