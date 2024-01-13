@@ -6,7 +6,7 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import { useSpecialMessage } from '../context/SpecialMessageContext';
 
-
+require('dotenv').config();
 
 const TopMenu = () => {
   return (

@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Link from 'next/link'; 
 import styled, { keyframes } from 'styled-components';
+import styles from '../styles/Home.module.css';
 
 import React, { useRef, useState, useEffect} from 'react';
 import { useSpecialMessage } from '../context/SpecialMessageContext';
@@ -10,7 +11,7 @@ import DrawingCanvas from '../context/DrawingCanvas';
 
 const StyledButton = styled.button`
   background-color: grey;
-  color: white;
+  color: {showSpecialMessage ? red : white};
   padding: 3px 4px;
   border-radius: 1px;
   border: none;
@@ -29,9 +30,51 @@ function isLocalStorageAvailable() {
   }
 }
 
-const UserInputComponent = () => {
-    const [color, setColor] = useState('white');
-    const [inputValue, setInputValue] = useState<string>('');
+interface TemporaryFontSizeChangerProps {
+  message: string; // Specify the type of the `message` prop
+}
+
+const TemporaryFontSizeChanger: React.FC<TemporaryFontSizeChangerProps> = ({ message }) => {
+  const [fontSize, setFontSize] = useState(16);
+  let isGrowing = true; // Local variable to control the growing/shrinking
+
+  useEffect(() => {
+      const interval = setInterval(() => {
+          setFontSize(prevFontSize => {
+              // Determine whether to grow or shrink the font size
+              if (prevFontSize >= 50) isGrowing = false;
+              if (prevFontSize <= 16) isGrowing = true;
+
+              // Change font size
+              return isGrowing ? prevFontSize + 1 : prevFontSize - 1;
+          });
+      }, 30);
+
+      const timeout = setTimeout(() => {
+          clearInterval(interval);
+      }, 7000);
+
+      return () => {
+          clearInterval(interval);
+          clearTimeout(timeout);
+      };
+  }, []); // Empty dependency array
+
+  return (
+      <div>
+          <h1 style={{ fontSize: `${fontSize}px` }}>
+              {message}
+          </h1>
+      </div>
+  );
+};
+
+interface UserInputComponentProps {
+  setTitle: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const UserInputComponent: React.FC<UserInputComponentProps> = ({ setTitle }) => {
+    const [title, setTitleLocal] = useState('');
     const [displayText, setDisplayText] = useState<string[]>([]);
     const secretPassword = "<333";
     const { showSpecialMessage, setShowSpecialMessage } = useSpecialMessage(); 
@@ -40,63 +83,48 @@ const UserInputComponent = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const saved = window.sessionStorage.getItem('displayText');
+            const savedC = window.sessionStorage.getItem('color');
             if (saved) {
                 setDisplayText(JSON.parse(saved));
             }
         }
     }, []);
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            window.sessionStorage.setItem('displayText', JSON.stringify(displayText));
+    const askForTitle = () => {
+      const userInput = prompt(showSpecialMessage ? "Hello Love" : "Enter Title of Work Here", "");
+      if (userInput !== null) {
+        if(userInput === secretPassword){
+          setTitle("My Darling"); 
+          setShowSpecialMessage(true);
+        }else{
+          setTitle(userInput); // Update the state with the user's input
+          console.log(userInput);
         }
-    }, [displayText]);
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
+      }
     };
 
-
-
-    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            if (inputValue === secretPassword) {
-                console.log("Password is correct!");
-                setDisplayText(prevText => [...prevText, "Access Granted!"]);
-                setShowSpecialMessage(true);
-            }else {
-                setColor(color);
-                setDisplayText(prevText => [inputValue]);
-            }
-            setInputValue('');
-        }
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(event.target.value); // Update the title as the user types
     };
 
     return (
         <div>
-            <a>Choose title color:</a>
-            <input type="color" value={color} onChange={(e) => setColor(e.target.value)} />
-            <a></a>
-            <input 
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-                onKeyPress={handleKeyPress}
-                placeholder={showSpecialMessage ? "Hello Love" : "Enter Title of Work Here"}
-            />
-            <div style={{ textAlign: 'center' } }>
-            {displayText.map((text, index) => (
-              <h1 key={index} style={{ color: color }}>{text}</h1>
-            ))}
+          <button onClick={askForTitle} 
+            placeholder={showSpecialMessage ? "Hello Love" : "Enter Title of Work Here"}
+          >Enter Title Here</button>
+          <div style={{ textAlign: 'center', fontSize: 20, color:'black'} }>
+            <h1>{title}</h1>
+            {/* {showSpecialMessage && <TemporaryFontSizeChanger message={title}/> || <h1>{title}</h1>} */}
           </div>
-      </div>
+        </div>
     );
 };
 
 const CoolStuff: React.FC = () => {
   const { showSpecialMessage } = useSpecialMessage();
   const [userResponse, setUserResponse] = useState('');
+  const [title, setTitle] = useState('');
+
   const handlePrompt = () => {
     const response = window.prompt('Please enter your answer:');
     if (response !== null) {
@@ -108,14 +136,16 @@ const CoolStuff: React.FC = () => {
 
     <header>
       <h1>Welcome to Vincent&apos;s Trying Stuff Area</h1>
-      <a>Passionate computer engineer exploring exciting projects.</a>
+      <a>This is a safe place where I can try cool new things.</a>
       {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>)}
     </header>
-
+    <div style={{ textAlign: 'center', fontSize: 20, color: showSpecialMessage ? 'black':'white'} }>
+      {showSpecialMessage && <TemporaryFontSizeChanger message={title}/> || <h1>{title}</h1>}
+    </div>
     <React.StrictMode>
-    <UserInputComponent/>
+    <UserInputComponent setTitle={setTitle} />
     </React.StrictMode>
-    <DrawingCanvas/>
+    <DrawingCanvas special={showSpecialMessage} title = {title}/>
 
     <footer>
       <div>
@@ -124,7 +154,8 @@ const CoolStuff: React.FC = () => {
         <Link href="/">
           <StyledButton>Go to Home Page</StyledButton>
         </Link>
-        {showSpecialMessage && (<Link href="/GPT"> <StyledButton>Go to GPT</StyledButton> </Link>)}
+        
+        {showSpecialMessage && (<Link href="/WOW"> <StyledButton>Go to GPT</StyledButton> </Link>)}
       </div>
     
     <p>Contact: ninjaharkins@gmail.com</p>
@@ -136,39 +167,38 @@ const CoolStuff: React.FC = () => {
       max-width: 1050px;
       margin: 0 auto;
       padding: 40px;
-      /*font-family: "Comic Sans MS", "Comic Sans", cursive;*/
-      font-family: 'Arial', sans-serif;
-      background-color: #282c34; // Dark theme background
-      border-radius: 8px; // Smooth edges
+      font-family: ${showSpecialMessage ? 'Comic Sans MS' : 'Arial'};
+      background: ${showSpecialMessage 
+        ? 'url(/images/Hearts.png)' 
+        : 'linear-gradient(to right, red, #282c34)'};
+      background-size: cover; // Cover the entire container
+      background-position: center; // Center the image in the container
+      background-repeat: no-repeat; // Do not repeat the image
+      border-radius: 80px;
     }
-
+    h1 {
+      fontSize: 100
+    }
     header {
       text-align: center;
       margin-bottom: 20px;
       padding: 20px 0;
       background-color: #20232a; // Slightly darker header background
-      border-radius: 8px 8px 0 0; // Rounded top edges
+      border-radius: 80px 80px 80px 80px; // Rounded top edges
     }
     p{
-      color: #61dafb;
-      text-decoration: none; /* Removes the underline */
-    }
-
-    p:hover{
-      color: #f1dafb;
-      text-decoration: underline; /* Adds underline on hover */
+      color: ${showSpecialMessage 
+        ? 'red' 
+        : '#777'};
+      text-decoration: none; 
     }
 
     a{
-      color: #61dafb;
-      text-decoration: none; /* Removes the underline */
+      color: ${showSpecialMessage 
+        ? 'red' 
+        : '#777'};
+      text-decoration: none;
     }
-
-    a:hover{
-      color: #f1dafb;
-      text-decoration: underline; /* Adds underline on hover */
-    }
-
   `}</style>
 </div>
 );
