@@ -47,11 +47,10 @@ const HomePage: React.FC = () => {
 
         <div className="image-hover-container">
           <Image src="/images/myImage.jpg" alt="Image 1" style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} width={320} height={400}/>
-          <span className="hover-text">The first photo added to this website, this was taken after bargining into Bryce and Raph&apos;s room</span>
+          <span className="hover-text">The first photo added to this website, this was taken after barging into Bryce and Raph&apos;s room</span>
         </div>
         
           <div className="image-hover-container" >
-          {/* onClick={handlePrompt} */}
             <Link href="/cool-stuff">
               <Image src="/images/VincentGPT.JPG" alt="Image 2" width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
               <span className="hover-text">This is a photo of me talking to ChatGPT, while in my muppets class</span>
@@ -75,7 +74,7 @@ const HomePage: React.FC = () => {
 
         <div className="image-hover-container">
           <Image src="/images/Bryce's21st.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
-          <span className="hover-text">Happy 21st Bryce you old ass motherf--. Naw I love you Bryce&#9825;</span>
+          <span className="hover-text">Happy 21st Bryce you old ass motherf--. Naw I love you Bryce &#9825;</span>
         </div> 
 
         <div className="image-hover-container">
@@ -121,7 +120,18 @@ const HomePage: React.FC = () => {
           <Image src="/images/MaybeZachIsABurrito.jpg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">I was kidding before about Zach beinging a burrito, but after spotting him in the wild the mind kinda wonders</span>
         </div> 
-
+        <div className="image-hover-container">
+          <Image src="/images/BryceMandM.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <span className="hover-text">Bryce as an M&M? HOLDING M&M&apos;s!</span>
+        </div> 
+        <div className="image-hover-container">
+          <Image src="/images/ZachWithFrisbee.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <span className="hover-text">Zach as the legendary frisbee player we all know him as</span>
+        </div> 
+        <div className="image-hover-container">
+          <Image src="/images/StarbucksForJalens21st.jpeg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
+          <span className="hover-text">Jalen&apos;s 21 birthday, we got quirky and cool drinks twas lit! if only Jalen let me and Bryce pay the 50 cent tax for his cup smh. All Love &#9825;</span>
+        </div>
       </div>
 
       {/* Add a video using the HTML5 video element */}

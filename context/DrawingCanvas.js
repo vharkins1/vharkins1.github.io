@@ -63,7 +63,7 @@ const DrawingCanvas = ({special,title}) => {
 
     const startDrawing = ({ nativeEvent }) => {
         const { offsetX, offsetY } = nativeEvent;
-        contextRef.current.strokeStyle = isErasing ? '#20232a' :color; // Use the selected color
+        contextRef.current.strokeStyle = isErasing ? '#20232a' :color; // #20232a is the background color
         contextRef.current.beginPath();
         contextRef.current.moveTo(offsetX, offsetY);
         setIsDrawing(true);
