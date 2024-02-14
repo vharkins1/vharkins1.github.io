@@ -85,7 +85,7 @@ body {
   overflow-x: hidden;
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -93,6 +93,18 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+body {
+  background: linear-gradient(
+    to bottom,
+    #ff9a9e, /* Light pink */
+    #fecfef, /* Soft pink */
+    #ffffff  /* White */
+  );
+  color: #61dafb; /* Dark text color for readability */
+  margin: 0;
+  padding: 0;
 }
 
 a {

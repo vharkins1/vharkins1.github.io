@@ -9,6 +9,10 @@ import React, { useRef, useState, useEffect} from 'react';
 import { useSpecialMessage } from '../context/SpecialMessageContext';
 import DrawingCanvas from '../context/DrawingCanvas';
 
+const today = new Date();
+const isValentinesDay = today.getMonth() === 1 && today.getDate() === 14; // In JavaScript and TypeScript, months are 0-indexed, so February is 1
+
+
 const StyledButton = styled.button`
   background-color: grey;
   color: {showSpecialMessage ? red : white};
@@ -145,7 +149,7 @@ const CoolStuff: React.FC = () => {
     <React.StrictMode>
     <UserInputComponent setTitle={setTitle} />
     </React.StrictMode>
-    <DrawingCanvas special={showSpecialMessage} title = {title}/>
+    <DrawingCanvas special={showSpecialMessage || isValentinesDay} title = {title}/>
 
     <footer>
       <div>
@@ -155,7 +159,7 @@ const CoolStuff: React.FC = () => {
           <StyledButton>Go to Home Page</StyledButton>
         </Link>
         
-        {showSpecialMessage && (<Link href="/WOW"> <StyledButton>Go to GPT</StyledButton> </Link>)}
+        { showSpecialMessage && (<Link href="/VDay"> <StyledButton>Go Special Valentine&apos;s Day Button</StyledButton> </Link>)}
       </div>
     
     <p>Contact: ninjaharkins@gmail.com</p>
@@ -170,7 +174,7 @@ const CoolStuff: React.FC = () => {
       font-family: ${showSpecialMessage ? 'Comic Sans MS' : 'Arial'};
       background: ${showSpecialMessage 
         ? 'url(/images/Hearts.png)' 
-        : 'linear-gradient(to right, red, #282c34)'};
+        : '#28292a'};   //'linear-gradient(to right, red, #282c34)'};
       background-size: cover; // Cover the entire container
       background-position: center; // Center the image in the container
       background-repeat: no-repeat; // Do not repeat the image
