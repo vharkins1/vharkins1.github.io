@@ -10,14 +10,14 @@ interface Photo {
 // Sample array of photo objects
 const photos: Photo[] = [
   //{ src: '/VDAY/01.jpeg', caption: 'You me, and some of my housemates ' },
-  { src: '/VDAY/02.jpeg', caption: 'Our trip out to Point Reyes, which was a tremindous amount of hiking, and super fun' }, 
-  { src: '/VDAY/03.jpeg', caption: 'One of the first photos of us I have, we look dead pale but I enjoyed our time in the forest' }, 
-  { src: '/VDAY/04.jpeg', caption: 'First trip out to SF when we went up to the radio tower <3' }, 
-  { src: '/VDAY/05.jpeg', caption: "Going to the Oakland Zoo, one of the better dates I've taken you on I love our time their'" }, 
-  { src: '/VDAY/06.jpeg', caption: 'Dope fun cool happy times :)<3' }, 
-  { src: '/VDAY/07.jpeg', caption: 'More forest photos :)' },  
-  { src: '/VDAY/08.jpeg', caption: "While the Sharks might not be great right now, I'm glad we got to see Timo play, and also this was totally fun"},
-  // Add your photos herea
+  { src: '/VDAY/02.jpeg', caption: 'Our dope ass trip to Point Reyes, filled with incredible hiking and unforgettable scenery.' }, 
+  { src: '/VDAY/03.jpeg', caption: 'One of our earliest photos together, looking a bit pale but thoroughly enjoying our time in the mystical forest.' }, 
+  { src: '/VDAY/04.jpeg', caption: 'Our first journey to SF, where we ascended the radio tower. The view was breathtaking, and the experience, heartwarming.(Eventhough it was freezing cold) <3' }, 
+  { src: '/VDAY/05.jpeg', caption: "Our delightful visit to the Oakland Zoo, definitely one of our most memorable dates." }, 
+  { src: '/VDAY/06.jpeg', caption: 'Incredible fun, cool vibes, and happy times all around :) <3' }, 
+  { src: '/VDAY/07.jpeg', caption: 'Yet more enchanting forest photos capturing the beauty of nature and our shared moments within it. :)' },  
+  { src: '/VDAY/08.jpeg', caption: "Even though the Sharks aren't at their peak right now, I'm thrilled we got to see Timo play. T'was an absolutely fun experience." },
+// Add your photos herea
 ];
 
 const handlePageClick = (e: React.MouseEvent) => {
