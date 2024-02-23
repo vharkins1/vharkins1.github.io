@@ -51,7 +51,7 @@
       to bottom right,
       rgba(1, 65, 255, 0),
       rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
+      rgba(0, 28, 113, 0.3)
     );
 
     --tile-start-rgb: 2, 13, 46;
@@ -98,9 +98,9 @@ body {
 body {
   background: linear-gradient(
     to bottom,
-    #ff9a9e, /* Light pink */
-    #fecfef, /* Soft pink */
-    #ffffff  /* White */
+    #3b3b3b, /* Light pink */
+    #350024, /* Soft pink */
+    #000159  /* White */
   );
   color: #61dafb; /* Dark text color for readability */
   margin: 0;
