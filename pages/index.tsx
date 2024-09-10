@@ -11,7 +11,7 @@ require('dotenv').config();
 const TopMenu = () => {
   return (
     <>
-        <Link href="https://lewis-whitehill.github.io/mywebsite/" className={styles['menu-link']} style={{ marginRight: '20px' }}>
+        <Link href="https://summerprojects.vercel.app/" className={styles['menu-link']} style={{ marginRight: '20px' }}>
           Lewis&apos;s Website
         </Link>
 
@@ -60,7 +60,7 @@ const HomePage: React.FC = () => {
         <div className="image-hover-container">
           <Image src="/images/image.jpg" alt="Image 2"width={320} height={400} style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
           <span className="hover-text">This is Bryce looking like the baller he is</span>
-        </div> 
+        </div>  
 
         <div className="image-hover-container">
           <Image src="/images/lulu.jpeg" alt="Image 2"width={320} height={400}style={{ transition: '0.5s ease', opacity: 1 }} onMouseOver={e => (e.currentTarget.style.opacity = '0.2')} onMouseOut={e => (e.currentTarget.style.opacity = '1')} />
@@ -146,11 +146,10 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Add a video using the HTML5 video element */}
-      <video width={320} height={410} controls>
+      {/* <video width={320} height={410} controls>
        <source src="video/video.mp4" type="video/mp4"/>
        Your browser does not support the video tag.
-      </video>
+      </video> */}
 
       <footer className="site-footer">
         <div className="footer-content">
