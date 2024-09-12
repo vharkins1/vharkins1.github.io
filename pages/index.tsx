@@ -12,11 +12,19 @@ const TopMenu = () => {
   return (
     <>
         <Link href="https://summerprojects.vercel.app/" className={styles['menu-link']} style={{ marginRight: '20px' }}>
-          Lewis&apos;s Website
+          Project
         </Link>
 
-        <Link href="/about" className={styles['menu-link']}>
+        <Link href="/about" className={styles['menu-link']} style={{ marginRight: '20px' }}>
           About Page
+        </Link>
+
+        <Link href="/cool-stuff" className={styles['menu-link']} style={{ marginRight: '20px' }}>
+          Drawing
+        </Link>
+
+        <Link href="/reworking" className={styles['menu-link']}>
+          In Progress
         </Link>
     </>
   );
