@@ -9,21 +9,7 @@ import LikeButton from './LikeButton';
 import ImageWithLikeButton from './ImageWithLikeButton';
 require('dotenv').config();
 
-const TopMenu = () => {
-  return (
-    <>
-        <Link href="/" className={styles['menu-link']} style={{ marginRight: '20px' }}>
-          Home
-        </Link>
-
-        <Link href="/about" className={styles['menu-link']}>
-          About Page
-        </Link>
-    </>
-  );
-};
-
-
+import { TopMenu } from '../components/Layout';
 
 
 const HomePage: React.FC = () => {
