@@ -8,28 +8,7 @@ import { useSpecialMessage } from '../context/SpecialMessageContext';
 
 require('dotenv').config();
 
-const TopMenu = () => {
-  return (
-    <>
-        <Link href="https://summerprojects.vercel.app/" className={styles['menu-link']} style={{ marginRight: '20px' }}>
-          Project
-        </Link>
-
-        <Link href="/about" className={styles['menu-link']} style={{ marginRight: '20px' }}>
-          About Page
-        </Link>
-
-        <Link href="/cool-stuff" className={styles['menu-link']} style={{ marginRight: '20px' }}>
-          Drawing
-        </Link>
-
-        <Link href="/reworking" className={styles['menu-link']}>
-          In Progress
-        </Link>
-    </>
-  );
-};
-
+import { TopMenu } from '../components/Layout';
 
 const HomePage: React.FC = () => {
   //const { showSpecialMessage, setShowSpecialMessage } = useSpecialMessage(); 
