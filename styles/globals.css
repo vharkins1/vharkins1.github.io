@@ -1,4 +1,17 @@
 :root {
+  --bg-color: #f0f9ff;
+  --text-color: #1e293b;
+  --text-color-subtle: #475569;
+  --header-color: #0c4a6e;
+  --card-bg: white;
+  --color-2021: #3b82f6; /* Blue */
+  --color-2022: #8b5cf6; /* Purple */
+  --color-2023: #d946ef; /* Magenta */
+  --color-2024: #ec4899; /* Pink */
+  --color-2025: #f97316; /* Orange */
+  --color-2026: #ef4444; /* Red */
+  --color-2027: #b91c1c; /* Dark Red */
+
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
