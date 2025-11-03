@@ -27,6 +27,7 @@ const TopMenu = () => {
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div>
+      <TopMenu />
       {children}
     </div>
   );
