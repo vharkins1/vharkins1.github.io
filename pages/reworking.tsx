@@ -9,8 +9,6 @@ import LikeButton from './LikeButton';
 import ImageWithLikeButton from './ImageWithLikeButton';
 require('dotenv').config();
 
-import { TopMenu } from '../components/Layout';
-
 
 const HomePage: React.FC = () => {
 
@@ -21,9 +19,8 @@ const HomePage: React.FC = () => {
       <header>
         <h1>Welcome to The River Street Crew</h1>
         <p className="tagline">A place of friends, hopefully warmth, and maybe even food. (These are trying times after all) </p>
-        {/* {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>)} */}
+        {/* {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p)} */}
 
-        <TopMenu />
       </header>
       <div className="flex-container">
       

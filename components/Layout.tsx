@@ -5,19 +5,19 @@ import styles from '../styles/Home.module.css';
 const TopMenu = () => {
   return (
     <nav>
-      <Link href="https://summerprojects.vercel.app/" className={styles['menu-link']} style={{ marginRight: '20px' }}>
+      <Link href="https://summerprojects.vercel.app/" style={{ marginRight: '20px' }}>
         Project
       </Link>
-      <Link href="/about" className={styles['menu-link']} style={{ marginRight: '20px' }}>
+      <Link href="/about" style={{ marginRight: '20px' }}>
         About Page
       </Link>
-      <Link href="/cool-stuff" className={styles['menu-link']} style={{ marginRight: '20px' }}>
+      <Link href="/cool-stuff" style={{ marginRight: '20px' }}>
         Drawing
       </Link>
-      <Link href="/reworking" className={styles['menu-link']} style={{ marginRight: '20px' }}>
+      <Link href="/reworking" style={{ marginRight: '20px' }}>
         In Progress
       </Link>
-      <Link href="/timeline" className={styles['menu-link']}>
+      <Link href="/timeline">
         Timeline
       </Link>
     </nav>

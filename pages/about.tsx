@@ -4,8 +4,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
-import { TopMenu } from '../components/Layout';
-
 const projects = [
     {
       title: 'My personal Github Page',
@@ -31,7 +29,6 @@ const AboutPage: React.FC = () => {
     <header>
     <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
     <p className="tagline">Passionate computer engineer exploring exciting projects.</p>
-    <TopMenu />
   </header>
 
   <section id="about">
