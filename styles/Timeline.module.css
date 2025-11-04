@@ -9,13 +9,13 @@
   position: absolute;
   width: 3px;
   background: linear-gradient(to bottom,
-    var(--color-2021) 0%,
-    var(--color-2022) 15%,
-    var(--color-2023) 30%,
-    var(--color-2024) 50%,
-    var(--color-2025) 65%,
-    var(--color-2026) 80%,
-    var(--color-2027) 100%
+  var(--color-2021) 0%,
+  var(--color-2022) 15%,
+  var(--color-2023) 30%,
+  var(--color-2024) 50%,
+  var(--color-2025) 65%,
+  var(--color-2026) 80%,
+  var(--color-2027) 100%
   );
   top: 0;
   bottom: 0;
@@ -23,6 +23,7 @@
   margin-left: -1.5px;
   z-index: 1;
 }
+
 .timelineItem {
   padding: 10px 40px;
   position: relative;
@@ -34,7 +35,7 @@
   margin-top: 30px;
 }
 
-.timelineItem.isVisible {
+.isVisible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -52,6 +53,7 @@
   z-index: 2;
   transition: background-color 0.3s ease;
 }
+
 .timelineItem::before {
   content: '';
   position: absolute;
@@ -63,10 +65,23 @@
   z-index: 2;
 }
 
-.left { left: 0; padding-right: 50px; }
-.right { left: 50%; padding-left: 50px; }
-.right::after { left: -9px; }
-.right::before { left: 9px; }
+.left {
+  left: 0;
+  padding-right: 50px;
+}
+
+.right {
+  left: 50%;
+  padding-left: 50px;
+}
+
+.right::after {
+  left: -9px;
+}
+
+.right::before {
+  left: 9px;
+}
 
 .content {
   padding: 24px;
@@ -77,6 +92,7 @@
   min-height: 140px;
   overflow: visible;
 }
+
 .content:hover {
   transform: translateY(-5px);
 }
@@ -91,13 +107,29 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
 }
-.left .content > img:only-of-type { left: -24px; transform: rotate(-6deg); }
-.right .content > img:only-of-type { right: -24px; transform: rotate(6deg); }
-.left .content > img:only-of-type:hover { transform: scale(1.15) rotate(-8deg); z-index: 11; }
-.right .content > img:only-of-type:hover { transform: scale(1.15) rotate(8deg); z-index: 11; }
+
+.left .content > img:only-of-type {
+  left: -24px;
+  transform: rotate(-6deg);
+}
+
+.right .content > img:only-of-type {
+  right: -24px;
+  transform: rotate(6deg);
+}
+
+.left .content > img:only-of-type:hover {
+  transform: scale(1.15) rotate(-8deg);
+  z-index: 11;
+}
+
+.right .content > img:only-of-type:hover {
+  transform: scale(1.15) rotate(8deg);
+  z-index: 11;
+}
 
 /* Multi-image styles */
-.timelineItem.hasGallery .imageGallery > img {
+.hasGallery .imageGallery > img {
   position: absolute;
   width: 72px;
   height: 72px;
@@ -106,73 +138,257 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
 }
-.timelineItem.hasGallery .imageGallery > img:hover {
+
+.hasGallery .imageGallery > img:hover {
   transform: scale(1.15) rotate(var(--rotate, 0deg)) !important;
   z-index: 11;
 }
-.right.hasGallery .imageGallery img:nth-of-type(1) { top: -20px; right: -20px; --rotate: 10deg; transform: rotate(10deg); }
-.right.hasGallery .imageGallery img:nth-of-type(2) { bottom: -20px; left: -10px; --rotate: -8deg; transform: rotate(-8deg); }
-.right.hasGallery .imageGallery img:nth-of-type(3) { bottom: -15px; right: 40%; --rotate: 2deg; transform: rotate(2deg); }
-.left.hasGallery .imageGallery img:nth-of-type(1) { top: -20px; left: -20px; --rotate: -10deg; transform: rotate(-10deg); }
-.left.hasGallery .imageGallery img:nth-of-type(2) { bottom: -20px; right: -10px; --rotate: 8deg; transform: rotate(8deg); }
+
+.right.hasGallery .imageGallery img:nth-of-type(1) {
+  top: -20px;
+  right: -20px;
+  --rotate: 10deg;
+  transform: rotate(10deg);
+}
+
+.right.hasGallery .imageGallery img:nth-of-type(2) {
+  bottom: -20px;
+  left: -10px;
+  --rotate: -8deg;
+  transform: rotate(-8deg);
+}
+
+.right.hasGallery .imageGallery img:nth-of-type(3) {
+  bottom: -15px;
+  right: 40%;
+  --rotate: 2deg;
+  transform: rotate(2deg);
+}
+
+.left.hasGallery .imageGallery img:nth-of-type(1) {
+  top: -20px;
+  left: -20px;
+  --rotate: -10deg;
+  transform: rotate(-10deg);
+}
+
+.left.hasGallery .imageGallery img:nth-of-type(2) {
+  bottom: -20px;
+  right: -10px;
+  --rotate: 8deg;
+  transform: rotate(8deg);
+}
 
 /* --- Year, Color, and Glow Styling --- */
-.year2021::after, .year2021::before { background-color: var(--color-2021); }
-.year2021::after { border-color: var(--color-2021); }
-.year2021 .content { box-shadow: 0 6px 30px 5px rgba(59, 130, 246, 0.25); }
-.year2021 .content:hover { box-shadow: 0 8px 40px 8px rgba(59, 130, 246, 0.4); }
-.year2021 .dateText { color: var(--color-2021); }
-.year2021 img { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 15px 2px rgba(59, 130, 246, 0.5); }
-.year2021 img:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 25px 5px rgba(59, 130, 246, 0.6); }
+.year2021::after,
+.year2021::before {
+  background-color: var(--color-2021);
+}
 
-.year2022::after, .year2022::before { background-color: var(--color-2022); }
-.year2022::after { border-color: var(--color-2022); }
-.year2022 .content { box-shadow: 0 6px 30px 5px rgba(139, 92, 246, 0.25); }
-.year2022 .content:hover { box-shadow: 0 8px 40px 8px rgba(139, 92, 246, 0.4); }
-.year2022 .dateText { color: var(--color-2022); }
-.year2022 img { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 15px 2px rgba(139, 92, 246, 0.5); }
-.year2022 img:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 25px 5px rgba(139, 92, 246, 0.6); }
+.year2021::after {
+  border-color: var(--color-2021);
+}
 
-.year2023::after, .year2023::before { background-color: var(--color-2023); }
-.year2023::after { border-color: var(--color-2023); }
-.year2023 .content { box-shadow: 0 6px 30px 5px rgba(217, 70, 239, 0.25); }
-.year2023 .content:hover { box-shadow: 0 8px 40px 8px rgba(217, 70, 239, 0.4); }
-.year2023 .dateText { color: var(--color-2023); }
-.year2023 img { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 15px 2px rgba(217, 70, 239, 0.5); }
-.year2023 img:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 25px 5px rgba(217, 70, 239, 0.6); }
+.year2021 .content {
+  box-shadow: 0 6px 30px 5px rgba(59, 130, 246, 0.25);
+}
 
-.year2024::after, .year2024::before { background-color: var(--color-2024); }
-.year2024::after { border-color: var(--color-2024); }
-.year2024 .content { box-shadow: 0 6px 30px 5px rgba(236, 72, 153, 0.25); }
-.year2024 .content:hover { box-shadow: 0 8px 40px 8px rgba(236, 72, 153, 0.4); }
-.year2024 .dateText { color: var(--color-2024); }
-.year2024 img { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 15px 2px rgba(236, 72, 153, 0.5); }
-.year2024 img:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 25px 5px rgba(236, 72, 153, 0.6); }
-.year2025::after, .year2025::before { background-color: var(--color-2025); }
-.year2025::after { border-color: var(--color-2025); }
-.year2025 .content { box-shadow: 0 6px 30px 5px rgba(249, 115, 22, 0.25); }
-.year2025 .content:hover { box-shadow: 0 8px 40px 8px rgba(249, 115, 22, 0.4); }
-.year2025 .dateText { color: var(--color-2025); }
-.year2025 img { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 15px 2px rgba(249, 115, 22, 0.5); }
-.year2025 img:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 25px 5px rgba(249, 115, 22, 0.6); }
+.year2021 .content:hover {
+  box-shadow: 0 8px 40px 8px rgba(59, 130, 246, 0.4);
+}
 
-.year2026::after, .year2026::before { background-color: var(--color-2026); }
-.year2026::after { border-color: var(--color-2026); }
-.year2026 .content { box-shadow: 0 6px 30px 5px rgba(239, 68, 68, 0.25); }
-.year2026 .content:hover { box-shadow: 0 8px 40px 8px rgba(239, 68, 68, 0.4); }
-.year2026 .dateText { color: var(--color-2026); }
-.year2026 img { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 15px 2px rgba(239, 68, 68, 0.5); }
-.year2026 img:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 25px 5px rgba(239, 68, 68, 0.6); }
+.year2021 .dateText {
+  color: var(--color-2021);
+}
 
-.year2027::after, .year2027::before { background-color: var(--color-2027); }
-.year2027::after { border-color: var(--color-2027); }
-.year2027 .content { box-shadow: 0 6px 30px 5px rgba(185, 28, 28, 0.25); }
-.year2027 .content:hover { box-shadow: 0 8px 40px 8px rgba(185, 28, 28, 0.4); }
-.year2027 .dateText { color: var(--color-2027); }
-.year2027 img { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 15px 2px rgba(185, 28, 28, 0.5); }
-.year2027 img:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 25px 5px rgba(185, 28, 28, 0.6); }
+.year2021 img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px 2px rgba(59, 130, 246, 0.5);
+}
 
-.timelineStart { position: relative; padding-bottom: 20px; }
+.year2021 img:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(59, 130, 246, 0.6);
+}
+
+.year2022::after,
+.year2022::before {
+  background-color: var(--color-2022);
+}
+
+.year2022::after {
+  border-color: var(--color-2022);
+}
+
+.year2022 .content {
+  box-shadow: 0 6px 30px 5px rgba(139, 92, 246, 0.25);
+}
+
+.year2022 .content:hover {
+  box-shadow: 0 8px 40px 8px rgba(139, 92, 246, 0.4);
+}
+
+.year2022 .dateText {
+  color: var(--color-2022);
+}
+
+.year2022 img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px 2px rgba(139, 92, 246, 0.5);
+}
+
+.year2022 img:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(139, 92, 246, 0.6);
+}
+
+.year2023::after,
+.year2023::before {
+  background-color: var(--color-2023);
+}
+
+.year2023::after {
+  border-color: var(--color-2023);
+}
+
+.year2023 .content {
+  box-shadow: 0 6px 30px 5px rgba(217, 70, 239, 0.25);
+}
+
+.year2023 .content:hover {
+  box-shadow: 0 8px 40px 8px rgba(217, 70, 239, 0.4);
+}
+
+.year2023 .dateText {
+  color: var(--color-2023);
+}
+
+.year2023 img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px 2px rgba(217, 70, 239, 0.5);
+}
+
+.year2023 img:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(217, 70, 239, 0.6);
+}
+
+.year2024::after,
+.year2024::before {
+  background-color: var(--color-2024);
+}
+
+.year2024::after {
+  border-color: var(--color-2024);
+}
+
+.year2024 .content {
+  box-shadow: 0 6px 30px 5px rgba(236, 72, 153, 0.25);
+}
+
+.year2024 .content:hover {
+  box-shadow: 0 8px 40px 8px rgba(236, 72, 153, 0.4);
+}
+
+.year2024 .dateText {
+  color: var(--color-2024);
+}
+
+.year2024 img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px 2px rgba(236, 72, 153, 0.5);
+}
+
+.year2024 img:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(236, 72, 153, 0.6);
+}
+
+.year2025::after,
+.year2025::before {
+  background-color: var(--color-2025);
+}
+
+.year2025::after {
+  border-color: var(--color-2025);
+}
+
+.year2025 .content {
+  box-shadow: 0 6px 30px 5px rgba(249, 115, 22, 0.25);
+}
+
+.year2025 .content:hover {
+  box-shadow: 0 8px 40px 8px rgba(249, 115, 22, 0.4);
+}
+
+.year2025 .dateText {
+  color: var(--color-2025);
+}
+
+.year2025 img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px 2px rgba(249, 115, 22, 0.5);
+}
+
+.year2025 img:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(249, 115, 22, 0.6);
+}
+
+.year2026::after,
+.year2026::before {
+  background-color: var(--color-2026);
+}
+
+.year2026::after {
+  border-color: var(--color-2026);
+}
+
+.year2026 .content {
+  box-shadow: 0 6px 30px 5px rgba(239, 68, 68, 0.25);
+}
+
+.year2026 .content:hover {
+  box-shadow: 0 8px 40px 8px rgba(239, 68, 68, 0.4);
+}
+
+.year2026 .dateText {
+  color: var(--color-2026);
+}
+
+.year2026 img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px 2px rgba(239, 68, 68, 0.5);
+}
+
+.year2026 img:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(239, 68, 68, 0.6);
+}
+
+.year2027::after,
+.year2027::before {
+  background-color: var(--color-2027);
+}
+
+.year2027::after {
+  border-color: var(--color-2027);
+}
+
+.year2027 .content {
+  box-shadow: 0 6px 30px 5px rgba(185, 28, 28, 0.25);
+}
+
+.year2027 .content:hover {
+  box-shadow: 0 8px 40px 8px rgba(185, 28, 28, 0.4);
+}
+
+.year2027 .dateText {
+  color: var(--color-2027);
+}
+
+.year2027 img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px 2px rgba(185, 28, 28, 0.5);
+}
+
+.year2027 img:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(185, 28, 28, 0.6);
+}
+
+.timelineStart {
+  position: relative;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
 .yearDisplay {
   position: relative;
   z-index: 10;
@@ -181,6 +397,7 @@
   padding: 0 10px;
   transition: background-color 0.3s ease;
 }
+
 .timelineStart::after {
   content: '';
   position: absolute;
@@ -196,46 +413,90 @@
   transition: background-color 0.3s ease;
 }
 
-.shapeCircle { clip-path: circle(50% at 50% 50%); aspect-ratio: 1 / 1; }
-.shapeSquircle { border-radius: 24px; aspect-ratio: 1 / 1; }
-.textContainer { text-align: center; }
-.content > .textContainer { padding-top: 30px; }
-.has-gallery > .content > .textContainer { padding-top: 0; }
+.shapeCircle {
+  clip-path: circle(50% at 50% 50%);
+  aspect-ratio: 1 / 1;
+}
 
- @media screen and (max-width: 640px) {
- .timeline::after { left: 20px; }
-.timelineItem { width: 100%; padding-left: 50px; padding-right: 15px; }
-.timelineItem.left, .timelineItem.right { left: 0%; }
-.timelineItem::after { left: 11px; }
-.timelineItem::before { left: 30px; width: 20px; }
-.right::after, .left::after { left: 11px; }
-.right::before, .left::before { left: 30px; width: 20px; }
-.timelineStart::after { left: 20px; transform: translateX(-50%);}
-.content > img:only-of-type {
-  position: static;
-  transform: rotate(0) !important;
-  margin: 0 auto 16px auto;
-  width: 128px;
-  height: 128px;
+.shapeSquircle {
+  border-radius: 24px;
+  aspect-ratio: 1 / 1;
 }
-.content.has-gallery {
-  display: flex;
-  flex-direction: column;
+
+.textContainer {
+  text-align: center;
 }
-.imageGallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 16px;
-  order: -1;
+
+.content > .textContainer {
+  padding-top: 30px;
 }
-.timelineItem.hasGallery .imageGallery > img {
-  position: static;
-  transform: none !important;
-  width: 80px;
-  height: 80px;
+
+.hasGallery > .content > .textContainer {
+  padding-top: 0;
 }
-.content { min-height: 0; }
-.textContainer { padding-top: 0 !important; }
- }
+
+@media screen and (max-width: 640px) {
+  .timeline::after {
+    left: 20px;
+  }
+  .timelineItem {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 15px;
+  }
+  .timelineItem.left,
+  .timelineItem.right {
+    left: 0%;
+  }
+  .timelineItem::after {
+    left: 11px;
+  }
+  .timelineItem::before {
+    left: 30px;
+    width: 20px;
+  }
+  .right::after,
+  .left::after {
+    left: 11px;
+  }
+  .right::before,
+  .left::before {
+    left: 30px;
+    width: 20px;
+  }
+  .timelineStart::after {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+  .content > img:only-of-type {
+    position: static;
+    transform: rotate(0) !important;
+    margin: 0 auto 16px auto;
+    width: 128px;
+    height: 128px;
+  }
+  .content.has-gallery {
+    display: flex;
+    flex-direction: column;
+  }
+  .imageGallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+    order: -1;
+  }
+  .hasGallery .imageGallery > img {
+    position: static;
+    transform: none !important;
+    width: 80px;
+    height: 80px;
+  }
+  .content {
+    min-height: 0;
+  }
+  .textContainer {
+    padding-top: 0 !important;
+  }
+}

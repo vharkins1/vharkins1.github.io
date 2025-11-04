@@ -9,7 +9,6 @@ import React, { useRef, useState, useEffect} from 'react';
 import { useSpecialMessage } from '../context/SpecialMessageContext';
 import DrawingCanvas from '../context/DrawingCanvas';
 
-import { TopMenu } from '../components/Layout';
 
 const today = new Date();
 const isValentinesDay = today.getMonth() === 1 && today.getDate() === 14; // In JavaScript and TypeScript, months are 0-indexed, so February is 1
@@ -144,7 +143,6 @@ const CoolStuff: React.FC = () => {
       <h1>Welcome to Vincent&apos;s Trying Stuff Area</h1>
       <a>This is a safe place where I can try cool new things.</a>
       {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>)}
-      <TopMenu />
     </header>
     <div style={{ textAlign: 'center', fontSize: 20, color: showSpecialMessage ? 'black':'white'} }>
       {showSpecialMessage && <TemporaryFontSizeChanger message={title}/> || <h1>{title}</h1>}

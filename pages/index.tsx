@@ -8,7 +8,6 @@ import { useSpecialMessage } from '../context/SpecialMessageContext';
 
 require('dotenv').config();
 
-import { TopMenu } from '../components/Layout';
 
 const HomePage: React.FC = () => {
   //const { showSpecialMessage, setShowSpecialMessage } = useSpecialMessage(); 
@@ -27,7 +26,6 @@ const HomePage: React.FC = () => {
         <p className="tagline">A place of friends, hopefully warmth, and maybe even food. (These are trying times after all) </p>
         {/* {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>)} */}
 
-        <TopMenu />
       </header>
       
       <div className="flex-container">
