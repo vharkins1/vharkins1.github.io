@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
   images: {
-    // Enable image optimization
-    unoptimized: false,
+    // Image optimization must be disabled for static export
+    unoptimized: true,
     // Define device sizes for responsive images
     deviceSizes: [640, 750, 828, 1080, 1200],
     // Define image sizes for srcset
