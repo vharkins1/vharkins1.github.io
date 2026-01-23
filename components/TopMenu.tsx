@@ -1,33 +1,105 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const TopMenu: React.FC = () => {
+  const router = useRouter();
+
+  const links = [
+    { href: '/', label: 'Home', icon: '\u2302' },
+    { href: '/about', label: 'About', icon: '\u2139' },
+    { href: 'https://github.com/vharkins1?tab=repositories&sort=pushed', label: 'Github', icon: '\u2197', external: true },
+  ];
+
   return (
     <>
-      <nav className="top-menu">
-        <Link href="/">Home</Link>
-        <Link href="https://github.com/vharkins1?tab=repositories&sort=pushed">Github</Link>
-        <Link href="/about">About</Link>
+      <nav className="nav">
+        {links.map((link) => (
+          link.external ? (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              <span className="nav-label">{link.label}</span>
+              <span className="nav-icon">{link.icon}</span>
+            </a>
+          ) : (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`nav-link ${router.pathname === link.href ? 'active' : ''}`}
+            >
+              <span className="nav-label">{link.label}</span>
+            </Link>
+          )
+        ))}
       </nav>
 
       <style jsx>{`
-        .top-menu {
+        .nav {
           display: flex;
-          justify-content: center;
-          gap: 20px;
-          margin-top: 15px;
-          flex-wrap: wrap;
+          gap: var(--space-1);
+          padding: var(--space-2) 0;
         }
 
-        .top-menu :global(a) {
-          color: #61dafb;
+        .nav :global(.nav-link) {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 10px 16px;
+          font-size: var(--text-sm);
+          font-weight: 500;
+          color: var(--color-fg-muted);
+          background: var(--color-stone);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-md);
           text-decoration: none;
-          padding: 5px 10px;
+          transition: all 0.15s ease;
+
+          /* Matte button finish */
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.5),
+                      inset 0 -1px 0 rgba(0,0,0,0.03);
         }
 
-        .top-menu :global(a:hover) {
-          color: #f1dafb;
-          text-decoration: underline;
+        .nav :global(.nav-link:hover) {
+          background: var(--color-stone-dark);
+          border-color: var(--color-sage);
+          color: var(--color-fg);
+        }
+
+        .nav :global(.nav-link.active) {
+          background: var(--color-sage);
+          border-color: var(--color-sage-dark);
+          color: white;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),
+                      inset 0 -1px 0 rgba(0,0,0,0.1);
+        }
+
+        .nav-icon {
+          font-size: 0.9em;
+          opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+          .nav {
+            flex-wrap: wrap;
+          }
+
+          .nav :global(.nav-link) {
+            padding: 8px 12px;
+            font-size: var(--text-xs);
+          }
+
+          .nav-label {
+            display: none;
+          }
+
+          .nav-icon {
+            display: block;
+          }
         }
       `}</style>
     </>
