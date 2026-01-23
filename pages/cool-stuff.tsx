@@ -1,9 +1,9 @@
 // pages/cool-stuff.tsx
 
 import Head from 'next/head';
-import Link from 'next/link'; 
+import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
-import styles from '../styles/Home.module.css';
+import TopMenu from '../components/TopMenu';
 
 import React, { useRef, useState, useEffect} from 'react';
 import { useSpecialMessage } from '../context/SpecialMessageContext';
@@ -136,75 +136,48 @@ const CoolStuff: React.FC = () => {
     }
   };
   return (
-    <div className="container">
+    <div className="page-container drawing-page">
+      <header className="page-header">
+        <h1>Drawing Canvas</h1>
+        <p className="tagline">A creative space to try new things</p>
+        {showSpecialMessage && (<p className="special-message">I hoped you enjoyed my website!</p>)}
+        <TopMenu />
+      </header>
 
-    <header>
-      <h1>Welcome to Vincent&apos;s Trying Stuff Area</h1>
-      <a>This is a safe place where I can try cool new things.</a>
-      {showSpecialMessage && (<p className="tagline">I hoped you enjoyed my website, but like really you specifically I hoped you liked it!</p>)}
-    </header>
-    <div style={{ textAlign: 'center', fontSize: 20, color: showSpecialMessage ? 'black':'white'} }>
-      {showSpecialMessage && <TemporaryFontSizeChanger message={title}/> || <h1>{title}</h1>}
-    </div>
-    <React.StrictMode>
-    <UserInputComponent setTitle={setTitle} />
-    </React.StrictMode>
-    <DrawingCanvas special={showSpecialMessage || isValentinesDay} title = {title}/>
-
-    <footer>
-      <div>
-        <StyledButton onClick={handlePrompt}>Give Feedback</StyledButton>
-        {userResponse && <p>You responded: {userResponse}</p>}
-        <Link href="/">
-          <StyledButton>Go to Home Page</StyledButton>
-        </Link>
-        
-        { showSpecialMessage && (<Link href="/VDay"> <StyledButton>Go Special Valentine&apos;s Day Button</StyledButton> </Link>)}
+      <div className="page-content">
+        <div className="canvas-controls">
+          {showSpecialMessage && <TemporaryFontSizeChanger message={title}/> || (title && <h2 className="title-display">{title}</h2>)}
+        </div>
+        <UserInputComponent setTitle={setTitle} />
+        <DrawingCanvas special={showSpecialMessage || isValentinesDay} title={title}/>
       </div>
-    
-    <p>Contact: ninjaharkins@gmail.com</p>
-  </footer>
 
-  <style jsx>{`
+      <footer className="page-footer">
+        <div>
+          <StyledButton onClick={handlePrompt}>Give Feedback</StyledButton>
+          {userResponse && <p>You responded: {userResponse}</p>}
+          {showSpecialMessage && (<Link href="/VDay"><StyledButton>Valentine&apos;s Day</StyledButton></Link>)}
+        </div>
+        <p>Contact: <a href="mailto:ninjaharkins@gmail.com">ninjaharkins@gmail.com</a></p>
+      </footer>
 
-    .container {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 40px;
-      font-family: ${showSpecialMessage ? 'Comic Sans MS' : 'Arial'};
-      background: ${showSpecialMessage 
-        ? 'url(/images/Hearts.png)' 
-        : '#28292a'};   //'linear-gradient(to right, red, #282c34)'};
-      background-size: cover; // Cover the entire container
-      background-position: center; // Center the image in the container
-      background-repeat: no-repeat; // Do not repeat the image
-      border-radius: 80px;
-    }
-    h1 {
-      fontSize: 100
-    }
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-      padding: 20px 0;
-      background-color: #20232a; // Slightly darker header background
-      border-radius: 80px 80px 80px 80px; // Rounded top edges
-    }
-    p{
-      color: ${showSpecialMessage 
-        ? 'red' 
-        : '#777'};
-      text-decoration: none; 
-    }
+      <style jsx>{`
+        .canvas-controls {
+          text-align: center;
+          margin-bottom: 20px;
+        }
 
-    a{
-      color: ${showSpecialMessage 
-        ? 'red' 
-        : '#777'};
-      text-decoration: none;
-    }
-  `}</style>
-</div>
-);
+        .title-display {
+          color: #61dafb;
+          font-size: 1.8em;
+        }
+
+        .special-message {
+          color: #ff6b6b;
+          font-style: italic;
+        }
+      `}</style>
+    </div>
+  );
 };
 export default CoolStuff;

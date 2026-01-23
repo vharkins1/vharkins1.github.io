@@ -1,7 +1,8 @@
 // pages/about.tsx
 import React from 'react';
 import Head from 'next/head';
-import Link from 'next/link'; 
+import Link from 'next/link';
+import TopMenu from '../components/TopMenu'; 
 
 const projects = [
     {
@@ -24,124 +25,93 @@ const projects = [
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="container">
-    <header>
-    <h1>Welcome to Vincent&apos;s Computer Engineering Portfolio</h1>
-    <p className="tagline">Passionate computer engineer exploring exciting projects.</p>
-  </header>
+    <div className="page-container">
+      <header className="page-header">
+        <h1>Vincent&apos;s Portfolio</h1>
+        <p className="tagline">Computer Engineer | Problem Solver | Tech Enthusiast</p>
+        <TopMenu />
+      </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hello, I&apos;m Vincent Harkins, a 20-year-old computer engineering major with a passion for technology and a drive to excel.
-      I am enthusiastic about exploring opportunities, both in internships and jobs, to apply my skills and contribute to innovative projects.
-    </p>
-  </section>
+      <div className="page-content">
+        <section id="about">
+          <h2>About Me</h2>
+          <p>
+            Hello, I&apos;m Vincent Harkins, a computer engineering major with a passion for technology and a drive to excel.
+            I am enthusiastic about exploring opportunities, both in internships and jobs, to apply my skills and contribute to innovative projects.
+          </p>
+        </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p className="indent">
-      If you&apos;d like to get in touch or discuss potential opportunities, feel free to reach out to me.
-      I&apos;m always open to new connections and collaborations.
-    </p>
-  </section>
+        <section id="contact">
+          <h2>Contact Me</h2>
+          <p>
+            If you&apos;d like to get in touch or discuss potential opportunities, feel free to reach out to me.
+            I&apos;m always open to new connections and collaborations.
+          </p>
+        </section>
 
-  <section id="more">
-    <h2>More Stuff:</h2>
-    <ul className="projects-list">
-      {projects.map((project, index) => (
-        <li key={index} className="project">
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
-            View Project
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
-    <Link href="/">
-        <button>Go to Home Page</button>
-    </Link>
+        <section id="more">
+          <h2>Projects</h2>
+          <ul className="projects-list">
+            {projects.map((project, index) => (
+              <li key={index} className="project">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  View Project
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
 
-  <footer>
-    <p>Contact: ninjaharkins@gmail.com</p>
-  </footer>
+      <footer className="page-footer">
+        <p>Contact: <a href="mailto:ninjaharkins@gmail.com">ninjaharkins@gmail.com</a></p>
+      </footer>
 
-  <style jsx>{`
-    .container {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 40px;
-      /*font-family: "Comic Sans MS", "Comic Sans", cursive;*/
-      font-family: 'Arial', sans-serif;
-      background-color: #282c34; // Dark theme background
-      border-radius: 8px; // Smooth edges
-    }
+      <style jsx>{`
+        section {
+          margin-bottom: 30px;
+        }
 
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-      padding: 20px 0;
-      background-color: #20232a; // Slightly darker header background
-      border-radius: 8px 8px 0 0; // Rounded top edges
-    }
+        h2 {
+          font-size: 1.5em;
+          color: #61dafb;
+          margin-bottom: 15px;
+        }
 
-    h1 {
-      font-size: 2em; 
-      margin-bottom: 10px;
-    }
+        h3 {
+          color: #61dafb;
+          margin-bottom: 8px;
+        }
 
-    .tagline {
-      font-size: 1.2em;
-      color: #777;
-    }
+        p {
+          line-height: 1.7;
+          color: #ccc;
+        }
 
-    section {
-      margin-bottom: 30px;
-    }
+        .projects-list {
+          list-style: none;
+          padding: 0;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+        }
 
-    h2 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
+        .project {
+          padding: 20px;
+          border-radius: 8px;
+          background-color: #2a2a3a;
+        }
 
-    p {
-      line-height: 1.6;
-    }
-
-    .indent {
-      margin-left: 20px;
-    }
-
-    .projects-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .project {
-      margin-bottom: 20px;
-      border: 5px solid grey;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    a {
-      color: #0770f3;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 30px;
-    }
-  `}</style>
-</div>
-);
+        .project a {
+          display: inline-block;
+          margin-top: 10px;
+          color: #61dafb;
+        }
+      `}</style>
+    </div>
+  );
 };
 export default AboutPage;
 

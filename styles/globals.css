@@ -96,15 +96,66 @@ body {
 } */
 
 body {
-  background: linear-gradient(
-    to bottom,
-    #3b3b3b, /* Light pink */
-    #350024, /* Soft pink */
-    #000159  /* White */
-  );
-  color: #61dafb; /* Dark text color for readability */
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-attachment: fixed;
+  color: #e0e0e0;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Consistent page container styling */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #1e1e2e;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Consistent header styling */
+.page-header {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.page-header h1 {
+  font-size: 2.5em;
+  color: #61dafb;
+  margin: 0 0 10px 0;
+}
+
+.page-header .tagline {
+  font-size: 1.1em;
+  color: #aaa;
+  margin: 0;
+}
+
+/* Consistent footer styling */
+.page-footer {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+  border-radius: 0 0 16px 16px;
+  color: #888;
+}
+
+.page-footer a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  color: #89dcfb;
+  text-decoration: underline;
+}
+
+/* Content area */
+.page-content {
+  padding: 20px;
 }
 
 a {
@@ -116,4 +167,46 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Gallery image hover effects */
+.image-hover-container {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 320px;
+  width: 320px;
+  height: 400px;
+  margin: 2px;
+}
+
+.gallery-image {
+  transition: opacity 0.5s ease !important;
+  display: block;
+  border-radius: 12px;
+}
+
+.image-hover-container:hover .gallery-image {
+  opacity: 0.2 !important;
+}
+
+/* Hover text - positioned on top of image, centered, hidden by default */
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #faf0e6;
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  padding: 10px;
+  width: 90%;
+  z-index: 10;
+}
+
+/* Show text only when hovering over the container */
+.image-hover-container:hover .hover-text {
+  opacity: 1;
 }
