@@ -8,6 +8,7 @@ const TopMenu: React.FC = () => {
   const links = [
     { href: '/', label: 'Home', icon: '\u2302' },
     { href: '/about', label: 'About', icon: '\u2139' },
+    { href: '/gallery', label: 'Gallery', icon: '\u2605' },
     { href: 'https://github.com/vharkins1?tab=repositories&sort=pushed', label: 'Github', icon: '\u2197', external: true },
   ];
 

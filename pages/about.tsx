@@ -4,38 +4,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import TopMenu from '../components/TopMenu';
 
-const projects = [
-  {
-    title: 'Angry Uncle Bot',
-    tech: 'React, Vite, OpenAI API, Vercel',
-    description: 'Developed a conversation-based web tool using OpenAI\'s ChatGPT with engineered prompt instructions for tone consistency and accuracy.',
-    period: 'June 2025 – Present',
-    status: 'Active',
-  },
-  {
-    title: 'Personal Portfolio Website',
-    tech: 'React, Node.js',
-    description: 'Built a personal website with React to strengthen my understanding of this industry-leading framework. Using Node.js made it easy to deploy and render content dynamically.',
-    link: 'https://github.com/vharkins1/vharkins1.github.io',
-    period: 'January 2024 – Present',
-    status: 'Active',
-  },
-  {
-    title: 'Smart Pill Dispenser',
-    tech: 'React Native, Firebase',
-    description: 'Led development of a mobile-friendly web app for a smart pill dispenser system. Designed Firestore database schema and built front-end UI with React Native.',
-    period: 'January 2025 – June 2025',
-    status: 'Completed',
-  },
-  {
-    title: 'Spotify to YouTube Music Converter',
-    tech: 'React, Vite, Vercel, OAuth',
-    description: 'Developed a music conversion tool using React and Vite. Focused on API calls and OAuth 2.0 authentication. Deployed with Vercel serverless functions.',
-    period: 'June 2024 – January 2025',
-    status: 'Completed',
-  },
-];
-
 const experience = [
   {
     title: 'Neuromorphic Computing Group Research Assistant',
@@ -96,15 +64,22 @@ const AboutPage: React.FC = () => {
       </Head>
 
       <header className="header">
-        {/* <div className="header-top">
-          <span className="tag">Profile</span>
-          <span className="mono muted">Santa Cruz, CA</span>
-        </div> */}
-
-        <h1>Vincent Harkins</h1>
-        <p className="subtitle">Computer Science and Engineering Student</p>
-
-        <TopMenu />
+        <div className="hero-banner">
+          <Image
+            src="/images/santa-cruz-map.png"
+            alt="Santa Cruz illustrated map"
+            fill
+            priority
+          />
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <h1>About</h1>
+            <p className="hero-tagline">Computer Science and Engineering Student</p>
+            <div className="hero-nav">
+              <TopMenu />
+            </div>
+          </div>
+        </div>
       </header>
 
       {/* About Section */}
@@ -132,7 +107,7 @@ const AboutPage: React.FC = () => {
               with an expected graduation of June 2026.
             </p>
             <p>
-              Currently working as a Research Assistant in the Neuromorphic Computing Group, focusing on 
+              Currently working as a Research Assistant in the Neuromorphic Computing Group, focusing on
               spiking neural networks and GPU energy profiling for AI workloads.
             </p>
 
@@ -173,6 +148,17 @@ const AboutPage: React.FC = () => {
                   className="detail-value link"
                 >
                   vincentharkins
+                </a>
+              </div>
+              <div className="detail detail-resume">
+                <span className="detail-label">Resume</span>
+                <a
+                  href="/Vincent_Harkins_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="detail-value link"
+                >
+                  Download PDF &darr;
                 </a>
               </div>
             </div>
@@ -254,43 +240,6 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section className="section">
-        <div className="section-header">
-          <h2>Projects</h2>
-        </div>
-
-        <div className="projects-list">
-          {projects.map((project, index) => (
-            <div key={index} className="project-item card">
-              <div className="project-main">
-                <div className="project-title-row">
-                  <h3>{project.title}</h3>
-                  <span className={`tag ${project.status === 'Active' ? 'tag-accent' : ''}`}>
-                    {project.status}
-                  </span>
-                </div>
-                <span className="project-tech">{project.tech}</span>
-                <p>{project.description}</p>
-              </div>
-              <div className="project-meta">
-                <span className="mono period">{project.period}</span>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn"
-                  >
-                    View
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className="section contact-section">
         <div className="contact-card">
@@ -312,30 +261,56 @@ const AboutPage: React.FC = () => {
 
       <style jsx>{`
         .header {
-          padding: var(--space-6) var(--space-4);
           border-bottom: 1px solid var(--color-border);
         }
 
-        .header-top {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: var(--space-4);
+        .hero-banner {
+          position: relative;
+          height: 360px;
+          width: 100%;
+          overflow: hidden;
         }
 
-        .muted {
-          color: var(--color-fg-muted);
-          font-size: var(--text-xs);
+        .hero-banner :global(img) {
+          object-fit: cover;
+          object-position: center 30%;
+        }
+
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.5) 100%
+          );
+          z-index: 1;
+        }
+
+        .hero-content {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: var(--space-4);
+          z-index: 2;
         }
 
         .header h1 {
           margin-bottom: var(--space-1);
+          color: white;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
-        .subtitle {
-          color: var(--color-fg-muted);
-          font-size: var(--text-lg);
-          margin-bottom: var(--space-4);
+        .hero-tagline {
+          color: rgba(255, 255, 255, 0.9);
+          font-size: var(--text-base);
+          text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+          margin-bottom: var(--space-3);
+        }
+
+        .hero-nav {
+          margin-top: var(--space-2);
         }
 
         /* Sections */
@@ -408,6 +383,17 @@ const AboutPage: React.FC = () => {
 
         .detail-value {
           color: var(--color-fg);
+        }
+
+        .detail-resume {
+          margin-top: var(--space-2);
+          padding-top: var(--space-2);
+          border-top: 1px dashed var(--color-border);
+        }
+
+        .detail-resume .link {
+          font-weight: 500;
+          color: var(--color-sage-dark);
         }
 
         /* Education */
@@ -540,54 +526,6 @@ const AboutPage: React.FC = () => {
           border-bottom: none;
         }
 
-        /* Projects */
-        .projects-list {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-2);
-        }
-
-        .project-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: var(--space-3);
-        }
-
-        .project-title-row {
-          display: flex;
-          align-items: center;
-          gap: var(--space-2);
-          margin-bottom: 4px;
-        }
-
-        .project-main h3 {
-          font-size: var(--text-base);
-          font-weight: 600;
-        }
-
-        .project-tech {
-          display: block;
-          font-family: var(--font-mono);
-          font-size: var(--text-xs);
-          color: var(--color-sage-dark);
-          margin-bottom: 8px;
-        }
-
-        .project-main p {
-          font-size: var(--text-sm);
-          color: var(--color-fg-muted);
-          margin: 0;
-        }
-
-        .project-meta {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          gap: var(--space-2);
-          flex-shrink: 0;
-        }
-
         /* Contact */
         .contact-section {
           border-bottom: none;
@@ -612,6 +550,10 @@ const AboutPage: React.FC = () => {
 
         /* Responsive */
         @media (max-width: 768px) {
+          .hero-banner {
+            height: 240px;
+          }
+
           .about-grid {
             grid-template-columns: 1fr;
           }
@@ -629,18 +571,6 @@ const AboutPage: React.FC = () => {
           .experience-header {
             flex-direction: column;
             gap: 4px;
-          }
-
-          .project-item {
-            flex-direction: column;
-            gap: var(--space-2);
-          }
-
-          .project-meta {
-            width: 100%;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
           }
         }
       `}</style>
