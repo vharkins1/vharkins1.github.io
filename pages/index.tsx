@@ -89,7 +89,7 @@ const HomePage: React.FC = () => {
           <div className="hero-overlay" />
           <div className="hero-content">
             <h1>Vincent Harkins</h1>
-            <p className="hero-tagline">Things I've built and worked on</p>
+            <p className="hero-tagline">Things I&apos;ve built and worked on</p>
             <div className="hero-nav">
               <TopMenu />
             </div>
