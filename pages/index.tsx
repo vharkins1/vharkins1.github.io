@@ -3,6 +3,10 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import TopMenu from '../components/TopMenu';
+import ObfuscatedEmail from '../components/ObfuscatedEmail';
+
+// Encoded email: vincenttharkins@gmail.com (shift cipher +3)
+const ENCODED_EMAIL = 'ylqfhqwwkdunlqvCjpdlo1frp';
 
 const projects = [
   {
@@ -156,7 +160,7 @@ const HomePage: React.FC = () => {
       </section>
 
       <footer className="page-footer">
-        <a href="mailto:vincenttharkins@gmail.com">vincenttharkins@gmail.com</a>
+        <ObfuscatedEmail encoded={ENCODED_EMAIL} />
         <span className="mono">2026</span>
       </footer>
 

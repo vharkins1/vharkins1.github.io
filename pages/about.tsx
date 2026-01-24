@@ -3,6 +3,21 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import TopMenu from '../components/TopMenu';
+import ObfuscatedEmail from '../components/ObfuscatedEmail';
+import ObfuscatedText from '../components/ObfuscatedText';
+import ProtectedLink from '../components/ProtectedLink';
+
+// Encoded personal data (decoded only client-side)
+// Email: vincenttharkins@gmail.com (shift cipher +3)
+const ENCODED_EMAIL = 'ylqfhqwwkdunlqvCjpdlo1frp';
+// Location: Santa Cruz, CA 95060 (base64)
+const ENCODED_LOCATION = 'U2FudGEgQ3J1eiwgQ0EgOTUwNjA=';
+// LinkedIn: https://www.linkedin.com/in/vincent-harkins-060a4426b/ (base64)
+const ENCODED_LINKEDIN = 'aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3ZpbmNlbnQtaGFya2lucy0wNjBhNDQyNmIv';
+// LeetCode: https://leetcode.com/vincentharkins/ (base64)
+const ENCODED_LEETCODE = 'aHR0cHM6Ly9sZWV0Y29kZS5jb20vdmluY2VudGhhcmtpbnMv';
+// Resume: /Vincent_Harkins_Resume.pdf (base64)
+const ENCODED_RESUME = 'L1ZpbmNlbnRfSGFya2luc19SZXN1bWUucGRm';
 
 const experience = [
   {
@@ -114,13 +129,11 @@ const AboutPage: React.FC = () => {
             <div className="details-grid">
               <div className="detail">
                 <span className="detail-label">Location</span>
-                <span className="detail-value">Santa Cruz, CA 95060</span>
+                <ObfuscatedText encoded={ENCODED_LOCATION} className="detail-value" />
               </div>
               <div className="detail">
                 <span className="detail-label">Email</span>
-                <a href="mailto:vincenttharkins@gmail.com" className="detail-value link">
-                  vincenttharkins@gmail.com
-                </a>
+                <ObfuscatedEmail encoded={ENCODED_EMAIL} className="detail-value link" />
               </div>
               <div className="detail">
                 <span className="detail-label">Website</span>
@@ -130,36 +143,35 @@ const AboutPage: React.FC = () => {
               </div>
               <div className="detail">
                 <span className="detail-label">LinkedIn</span>
-                <a
-                  href="https://www.linkedin.com/in/vincent-harkins-060a4426b/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <ProtectedLink
+                  encodedUrl={ENCODED_LINKEDIN}
                   className="detail-value link"
+                  newTab
                 >
                   vincent-harkins
-                </a>
+                </ProtectedLink>
               </div>
               <div className="detail">
                 <span className="detail-label">LeetCode</span>
-                <a
-                  href="https://leetcode.com/vincentharkins/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <ProtectedLink
+                  encodedUrl={ENCODED_LEETCODE}
                   className="detail-value link"
+                  newTab
                 >
                   vincentharkins
-                </a>
+                </ProtectedLink>
               </div>
               <div className="detail detail-resume">
                 <span className="detail-label">Resume</span>
-                <a
-                  href="/Vincent_Harkins_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <ProtectedLink
+                  encodedUrl={ENCODED_RESUME}
                   className="detail-value link"
+                  newTab
+                  requireConfirmation
+                  confirmMessage="Download resume PDF?"
                 >
                   Download PDF &darr;
-                </a>
+                </ProtectedLink>
               </div>
             </div>
           </div>
@@ -240,22 +252,10 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="section contact-section">
-        <div className="contact-card">
-          <h2>Get in Touch</h2>
-          <p>
-            Interested in working together? Have a question?
-            Drop me an email.
-          </p>
-          <a href="mailto:vincenttharkins@gmail.com" className="btn btn-primary">
-            Send Email
-          </a>
-        </div>
-      </section>
+
 
       <footer className="page-footer">
-        <span>Vincent Harkins</span>
+        <ObfuscatedEmail encoded={ENCODED_EMAIL} />
         <span className="mono">2026</span>
       </footer>
 
@@ -524,28 +524,6 @@ const AboutPage: React.FC = () => {
 
         .skill-list li:last-child {
           border-bottom: none;
-        }
-
-        /* Contact */
-        .contact-section {
-          border-bottom: none;
-        }
-
-        .contact-card {
-          background: var(--color-stone);
-          border: 1px solid var(--color-border);
-          border-radius: var(--radius-md);
-          padding: var(--space-4);
-          text-align: center;
-        }
-
-        .contact-card h2 {
-          margin-bottom: var(--space-2);
-        }
-
-        .contact-card p {
-          margin: 0 auto var(--space-3);
-          color: var(--color-fg-muted);
         }
 
         /* Responsive */
