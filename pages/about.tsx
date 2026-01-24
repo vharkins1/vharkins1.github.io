@@ -136,12 +136,6 @@ const AboutPage: React.FC = () => {
                 <ObfuscatedEmail encoded={ENCODED_EMAIL} className="detail-value link" />
               </div>
               <div className="detail">
-                <span className="detail-label">Website</span>
-                <a href="https://vharkins1.github.io" className="detail-value link">
-                  vharkins1.github.io
-                </a>
-              </div>
-              <div className="detail">
                 <span className="detail-label">LinkedIn</span>
                 <ProtectedLink
                   encodedUrl={ENCODED_LINKEDIN}
